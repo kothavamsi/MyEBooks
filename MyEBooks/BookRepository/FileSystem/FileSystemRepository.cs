@@ -6,6 +6,7 @@ using MyEBooks.Models;
 using System.Configuration;
 using System.IO;
 using System.Text.RegularExpressions;
+using MyEBooks.BookRepository.FileSystem.BooksLocationSettingsHandler;
 
 namespace MyEBooks.Core
 {
@@ -28,31 +29,34 @@ namespace MyEBooks.Core
             throw new NotImplementedException();
         }
 
-        private static List<string> FindFiles(string searchString)
+        private static List<Book> FindBooks(string keyword)
         {
-            List<string> foundFiles = new List<string>();
-            var searchPaths = ConfigurationManager.AppSettings["searchPaths"];
-            var paths = searchPaths.Split(';');
-            foreach (var path in paths)
+            List<Book> foundBooks = new List<Book>();
+            foreach (var path in BooksLocationSettings.Locations)
             {
-                var r = FindFilesAtPath(searchString, path);
-                foundFiles.AddRange(r);
+                var r = FindBooksAtPath(keyword, path);
+                foundBooks.AddRange(r);
             }
-            return foundFiles;
+            return foundBooks;
         }
 
-        private static List<string> FindFilesAtPath(string searchString, string path)
+        private static List<Book> FindBooksAtPath(string keyword, string path)
         {
-            List<string> foundFiles = new List<string>();
-            var files = Directory.GetFiles(path, "*.*", SearchOption.AllDirectories);
-            foundFiles = files.Select(f => new { OrginalCase = f, LowerCase = f.ToLower() }).Where(f => CheckRegularExpressionMatch(f.LowerCase, searchString)).Select(f => f.OrginalCase).ToList();
-            return foundFiles;
+            List<Book> foundBooks = new List<Book>();
+            string[] files = Directory.GetFiles(path, "*.*", SearchOption.AllDirectories);
+            var foundFiles = files.Select(f => new { FileNameOrginalCase = f, FileNameLowerCase = f.ToLower() }).Where(f => FileNameContains(f.FileNameLowerCase, keyword)).Select(f => f.FileNameOrginalCase).ToList();
+            foreach (string file in foundFiles)
+            {
+                FileInfo fi = new FileInfo(file);
+                foundBooks.Add(new Book() { Title = fi.Name });
+            }
+            return foundBooks;
         }
 
-        private static bool CheckRegularExpressionMatch(string searchString, string searchPattern)
+        private static bool FileNameContains(string searchString, string keyword)
         {
             var retVal = false;
-            Regex regEx = new Regex(searchPattern);
+            Regex regEx = new Regex(keyword);
             retVal = regEx.IsMatch(searchString);
             return retVal;
         }
