@@ -163,10 +163,11 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Core\BookManager.cs" />
-    <Compile Include="Core\WebRepository.cs" />
-    <Compile Include="Core\DatabaseRepository.cs" />
-    <Compile Include="Core\FileSystemRepository.cs" />
+    <Compile Include="Core\DataBase\DatabaseRepository.cs" />
+    <Compile Include="Core\FileSystem\FileSystemRepository.cs" />
+    <Compile Include="Core\FileSystem\FsrSettings.cs" />
     <Compile Include="Core\IBookRepository.cs" />
+    <Compile Include="Core\Web\WebRepository.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
@@ -294,9 +295,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Search\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Search\Result.cshtml" />
