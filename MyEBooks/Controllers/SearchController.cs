@@ -4,14 +4,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MyEBooks.Models;
+using MyEBooks.Core;
 
 namespace MyEBooks.Controllers
 {
     public class SearchController : Controller
     {
-        //
-        // GET: /Search/
-
         public ActionResult Index(string keyword)
         {
             if (string.IsNullOrEmpty(keyword))
@@ -25,9 +23,10 @@ namespace MyEBooks.Controllers
             }
         }
 
-        private List<Book> FindBooks(string keyword)
+        private IList<Book> FindBooks(string keyword)
         {
-            throw new NotImplementedException();
+            IList<Book> books = new BookManager().GetBooksByKeyword(keyword);
+            return books;
         }
 
     }

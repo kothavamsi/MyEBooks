@@ -6,11 +6,11 @@ using MyEBooks.Models;
 
 namespace MyEBooks.Core
 {
-    public class FileSystemRepository :IBookRepository
+    public class FileSystemRepository : IBookRepository
     {
         public IList<Book> GetBooksByKeyword(string keyword)
         {
-            throw new NotImplementedException();
+            return new List<Book>();
         }
 
         public IList<Book> GetAllBooks()
