@@ -12,16 +12,17 @@ namespace MyEBooks.Controllers
     {
         public ActionResult Index(string keyword)
         {
+            SearchResult searchResult;
             if (string.IsNullOrEmpty(keyword))
             {
-                return View("Error");
+                searchResult = new SearchResult() { Books = new List<Book>(), SearchKeyword = "" };
             }
             else
             {
                 var books = FindBooks(keyword);
-                var searchResult = new SearchResult() { Books = books, SearchKeyword = keyword };
-                return View("Result", searchResult);
+                searchResult = new SearchResult() { Books = books, SearchKeyword = keyword };
             }
+            return View("Result", searchResult);
         }
 
         private IList<Book> FindBooks(string keyword)

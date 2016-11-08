@@ -2,10 +2,19 @@
     ViewBag.Title = "Search Results";
 }
 @model MyEBooks.Models.SearchResult
-<h1>Search Results for: @Model.SearchKeyword (found '@Model.Books.Count()' Books)</h1>
-<ul>
-    @foreach (var book in @Model.Books)
-    {
-        <li>@book.Title</li>
-    }
-</ul>
+<h1>
+    Search Results for: @Model.SearchKeyword (found '@Model.Books.Count()' Books)
+</h1>
+@if (@Model.Books.Count == 0)
+{
+    <span>Sorry, no ebooks matched your criteria.</span>
+}
+else
+{
+    <ul>
+        @foreach (var book in @Model.Books)
+        {
+            <li>@book.Title</li>
+        }
+    </ul>
+}

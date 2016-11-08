@@ -15,7 +15,7 @@ namespace MyEBooks.Core
         public IList<Book> GetBooksByKeyword(string keyword)
         {
             IList<Book> books = new List<Book>();
-            books.Add(new Book() { Title = "C# 6.0 core 1.0" });
+            books = FindBooks(keyword);
             return books;
         }
 
