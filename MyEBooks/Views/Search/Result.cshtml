@@ -1,18 +1,11 @@
 ﻿@{
-    Layout = null;
+    ViewBag.Title = "Search Results";
 }
-
-@model IList<MyEBooks.Models.Book>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Search Results</title>
-</head>
-<body>
-    <div>
-        @for
-    </div>
-</body>
-</html>
+@model MyEBooks.Models.SearchResult
+<h1>Search Results for: @Model.SearchKeyword (found '@Model.Books.Count()' Books)</h1>
+<ul>
+    @foreach (var book in @Model.Books)
+    {
+        <li>@book.Title</li>
+    }
+</ul>

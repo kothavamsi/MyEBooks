@@ -18,8 +18,9 @@ namespace MyEBooks.Controllers
             }
             else
             {
-                var result = FindBooks(keyword);
-                return View("Result", result);
+                var books = FindBooks(keyword);
+                var searchResult = new SearchResult() { Books = books, SearchKeyword = keyword };
+                return View("Result", searchResult);
             }
         }
 

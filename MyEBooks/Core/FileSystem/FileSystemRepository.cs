@@ -10,7 +10,9 @@ namespace MyEBooks.Core
     {
         public IList<Book> GetBooksByKeyword(string keyword)
         {
-            return new List<Book>();
+            IList<Book> books = new List<Book>();
+            books.Add(new Book() { Title = "C# 6.0 core 1.0" });
+            return books;
         }
 
         public IList<Book> GetAllBooks()
