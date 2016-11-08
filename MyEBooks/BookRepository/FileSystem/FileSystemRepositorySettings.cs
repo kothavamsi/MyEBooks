@@ -5,7 +5,7 @@ using System.Web;
 
 namespace MyEBooks.Core.FileSystem
 {
-    public class FsrSettings
+    public class FileSystemRepositorySettings
     {
     }
 }

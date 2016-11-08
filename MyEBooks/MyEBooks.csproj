@@ -161,6 +161,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="LogHandler\Config\LogManagerSection.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Core\BookManager.cs" />
     <Compile Include="Core\DataBase\DatabaseRepository.cs" />
@@ -168,6 +169,13 @@
     <Compile Include="Core\FileSystem\FsrSettings.cs" />
     <Compile Include="Core\IBookRepository.cs" />
     <Compile Include="Core\Web\WebRepository.cs" />
+    <Compile Include="LogHandler\HtmlLog\HtmlLogger.cs" />
+    <Compile Include="LogHandler\ILogger.cs" />
+    <Compile Include="LogHandler\LogEntry.cs" />
+    <Compile Include="LogHandler\LogManager.cs" />
+    <Compile Include="LogHandler\LogSettingsHandler\LogSettings.cs" />
+    <Compile Include="LogHandler\LogSettingsHandler\LogSettingsManager.cs" />
+    <Compile Include="LogHandler\XmlLog\XmlLogger.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
@@ -236,6 +244,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="LogHandler\HtmlLog\HtmlTemplate.htm" />
     <Content Include="Scripts\jquery-1.7.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
