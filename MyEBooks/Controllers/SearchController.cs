@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using MyEBooks.Models;
 using MyEBooks.Core;
+using MyEBooks.LogHandler;
 
 namespace MyEBooks.Controllers
 {
@@ -22,6 +23,12 @@ namespace MyEBooks.Controllers
                 var books = FindBooks(keyword);
                 searchResult = new SearchResult() { Books = books, SearchKeyword = keyword };
             }
+            LogManager.Write(new RequestInformation()
+            {
+                RequestUrl = Request.RequestType + " " + Request.Url,
+                UserAgent = Request.UserAgent,
+                IpAddress = Request.UserHostAddress
+            }.ToString(), Category.Information);
             return View("Result", searchResult);
         }
 

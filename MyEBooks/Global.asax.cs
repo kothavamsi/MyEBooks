@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using MyEBooks.LogHandler.LogSettingsHandler;
+using MyEBooks.LogHandler;
 
 namespace MyEBooks
 {
@@ -26,6 +27,7 @@ namespace MyEBooks
             AuthConfig.RegisterAuth();
 
             LogSettingsManager.LoadSettings();
+            LogManager.Initalize();
             BooksLocationSettingsManager.LoadSettings();
         }
     }
