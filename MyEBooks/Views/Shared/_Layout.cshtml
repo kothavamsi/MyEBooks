@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+    <title></title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -17,77 +17,63 @@
     <![endif]-->
 </head>
 <body>
-    <header>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
-                </div>
-                <div class="float-right">
-                    <section id="login">
-                        @Html.Partial("_LoginPartial")
-                    </section>
-                    <nav>
-                        <ul id="menu">
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("About", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </header>
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#MainNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">WebSiteName</a>
-        </div>
-        <div class="navbar-collapse" id="MainNavbar">
-        <ul class="nav navbar-nav">
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Books
-                <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Vip Books</a></li>
-                  <li><a href="#">Audio Books</a></li>
-                  <li><a href="#">BioGraphies</a></li> 
-                  <li><a href="#">Business</a></li> 
-                  <li><a href="#">Computer & Internet</a></li> 
-                </ul>
-            </li>
-            <li><a href="#">Top Sellers</a></li>
-            <li><a href="#">Most Reviews</a></li> 
-            <li><a href="#">New Release</a></li> 
-            <li><a href="#">Contact</a></li> 
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" >Sort By
-                <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">PostDate(Default)</a></li>
-                  <li><a href="#">Upload Date</a></li>
-                  <li><a href="#">Publication Date</a></li> 
-                  <li><a href="#">Most Reviews</a></li> 
-                  <li><a href="#">Avg. customer Review</a></li> 
-                  <li><a href="#">Most Downloads</a></li> 
-                </ul>
-            </li>
-            <li>
-            @Html.Partial("_LoginPartial")
-            </li> 
-            <form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search" />
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarCollapse" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              @*@Html.ActionLink("MyEbook", "Index", "Home")*@
+              <a class="navbar-brand" href="#">WebSiteName</a>
             </div>
-            <button type="submit" class="btn btn-default">Submit</button>
-            </form>
-        </ul>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Books
+                        <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">Vip Books</a></li>
+                          <li><a href="#">Audio Books</a></li>
+                          <li><a href="#">BioGraphies</a></li> 
+                          <li><a href="#">Business</a></li> 
+                          <li role="separator" class="divider"></li>
+                          <li><a href="#">Computer & Internet</a></li> 
+                        </ul>
+                    </li>
+                    <li><a href="#">Top Sellers</a></li>
+                    <li><a href="#">Most Reviews</a></li> 
+                    <li><a href="#">New Release</a></li> 
+                    <li><a href="#">Contact</a></li> 
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sort By
+                        <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">PostDate(Default)</a></li>
+                          <li><a href="#">Upload Date</a></li>
+                          <li><a href="#">Publication Date</a></li> 
+                          <li><a href="#">Most Reviews</a></li> 
+                          <li><a href="#">Avg. customer Review</a></li> 
+                          <li><a href="#">Most Downloads</a></li> 
+                        </ul>
+                    </li>
+                    </ul>
+                   
+                    
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+               <ul class="nav navbar-nav navbar-right">
+                @Html.Partial("_LoginPartial")
+               </ul>
         </div>
         </div>
-     </nav>
+    </nav>
     <div id="body">
         @RenderSection("featured", required: false)
         <section class="content-wrapper main-content clear-fix">
@@ -95,12 +81,29 @@
             </section>
     </div>
     <footer>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
-                </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="list-inline">
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Policy</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">RSS</a></li>
+                    <li><a href="#">DMCA</a></li>
+                    <li><a href="#">Donate</a></li>
+                    <li><a href="#">Sitemap</a></li>
+                </ul>
             </div>
-        </footer>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                Copyright © 2016 @Html.ActionLink("MyEbook", "Index", "Home")
+            </div>
+        </div>
+    </div>
+    </footer>
     @Scripts.Render("~/bundles/jquery")
     @RenderSection("scripts", required: false)
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
