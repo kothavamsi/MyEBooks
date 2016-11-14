@@ -1,8 +1,10 @@
 ﻿@{
     ViewBag.Title = "Search Results";
+    int totalRows = @Model.Books.Count / 4;
+    int row = 0;
 }
 @model MyEBooks.Models.SearchResult
-<h1>
+<h1 class="h2 alert-danger">
     Search Results for: @Model.SearchKeyword (found '@Model.Books.Count()' Books)
 </h1>
 @if (@Model.Books.Count == 0)
@@ -11,10 +13,13 @@
 }
 else
 {
-    <ul>
-        @foreach (var book in @Model.Books)
-        {
-            <li>@book.Title</li>
-        }
-    </ul>
+    for (row = 0; row < totalRows - 1; row++)
+    {
+    <div class="row ">
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">@Model.Books[row * 4 + 0].Title.Substring(0,10)</div>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">@Model.Books[row * 4 + 1].Title.Substring(0, 10)</div>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">@Model.Books[row * 4 + 2].Title.Substring(0, 10)</div>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">@Model.Books[row * 4 + 3].Title.Substring(0, 10)</div>
+    </div>
+    }
 }

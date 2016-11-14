@@ -1,0 +1,53 @@
+[1mdiff --git a/MyEBooks/Web.config b/MyEBooks/Web.config[m
+[1mindex c483247..4ad20b4 100644[m
+[1m--- a/MyEBooks/Web.config[m
+[1m+++ b/MyEBooks/Web.config[m
+[36m@@ -1,4 +1,4 @@[m
+[31m-﻿<?xml version="1.0" encoding="utf-8"?>[m
+[32m+[m[32m<?xml version="1.0" encoding="utf-8"?>[m
+ <!--[m
+   For more information on how to configure your ASP.NET application, please visit[m
+   http://go.microsoft.com/fwlink/?LinkId=169433[m
+[36m@@ -7,8 +7,8 @@[m
+   <configSections>[m
+     <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->[m
+     <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />[m
+[31m-    <section name="logManager" type="MyEBooks.LogHandler.Config.LogManagerSection,MyEBooks"/>[m
+[31m-    <section name="booksLocationManager" type="MyEBooks.LogHandler.Config.BooksLocationManagerSection,MyEBooks"/>[m
+[32m+[m[32m    <section name="logManager" type="MyEBooks.LogHandler.Config.LogManagerSection,MyEBooks" />[m
+[32m+[m[32m    <section name="booksLocationManager" type="MyEBooks.LogHandler.Config.BooksLocationManagerSection,MyEBooks" />[m
+   </configSections>[m
+   <connectionStrings>[m
+     <add name="DefaultConnection" connectionString="Data Source=.\SQLEXPRESS;Initial Catalog=aspnet-MyEBooks-20161108120645;Integrated Security=SSPI" providerName="System.Data.SqlClient" />[m
+[36m@@ -22,12 +22,12 @@[m
+   </appSettings>[m
+ [m
+   <logManager enable="true" overwrite="true">[m
+[31m-    <add listenerType="html" path="C:\Users\Vamsi\Desktop\MyEbookLog\foxebookLOG.html"/>[m
+[31m-    <add listenerType="xml" path=""/>[m
+[32m+[m[32m    <add listenerType="html" path="C:\Users\Vamsi\Desktop\MyEbookLog\foxebookLOG.html" />[m
+[32m+[m[32m    <add listenerType="xml" path="" />[m
+   </logManager>[m
+ [m
+   <booksLocationManager>[m
+[31m-    <add location="F:\Books\DotNetBooks"/>[m
+[32m+[m[32m    <add location="F:\Books\DotNetBooks" />[m
+   </booksLocationManager>[m
+ [m
+   <system.web>[m
+[36m@@ -58,6 +58,15 @@[m
+       <add name="ExtensionlessUrlHandler-ISAPI-4.0_64bit" path="*." verb="GET,HEAD,POST,DEBUG,PUT,DELETE,PATCH,OPTIONS" modules="IsapiModule" scriptProcessor="%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_isapi.dll" preCondition="classicMode,runtimeVersionv4.0,bitness64" responseBufferLimit="0" />[m
+       <add name="ExtensionlessUrlHandler-Integrated-4.0" path="*." verb="GET,HEAD,POST,DEBUG,PUT,DELETE,PATCH,OPTIONS" type="System.Web.Handlers.TransferRequestHandler" preCondition="integratedMode,runtimeVersionv4.0" />[m
+     </handlers>[m
+[32m+[m[32m        <httpRedirect enabled="false" destination="http://192.168.43.80:8099/search/mvc" exactDestination="false" childOnly="true" />[m
+[32m+[m[32m        <rewrite>[m
+[32m+[m[32m            <rules>[m
+[32m+[m[32m                <rule name="Search Rule" enabled="true">[m
+[32m+[m[32m                    <match url="search/asp/books" />[m
+[32m+[m[32m                    <action type="Rewrite" url="search/asp" logRewrittenUrl="true" />[m
+[32m+[m[32m                </rule>[m
+[32m+[m[32m            </rules>[m
+[32m+[m[32m        </rewrite>[m
+   </system.webServer>[m
+   <runtime>[m
+     <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">[m
