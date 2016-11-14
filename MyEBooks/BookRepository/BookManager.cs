@@ -28,5 +28,12 @@ namespace MyEBooks.Core
             books = repository.GetBooksByKeyword(keyword);
             return books;
         }
+
+        internal IList<Book> GetBooksByCategory(string categoryName)
+        {
+             IList<Book> books = new List<Book>();
+             books = repository.GetBooksByCategory(categoryName);
+            return books;
+        }
     }
 }

@@ -20,6 +20,12 @@ namespace MyEBooks
             );
 
             routes.MapRoute(
+                name: "Category",
+                url: "category/{categoryName}",
+                defaults: new { controller = "Category", action = "Index", categoryName = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

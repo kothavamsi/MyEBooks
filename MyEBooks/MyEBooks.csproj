@@ -164,6 +164,7 @@
     <Compile Include="BookRepository\FileSystem\Config\BooksLocationManagerSection.cs" />
     <Compile Include="BookRepository\FileSystem\BooksLocationSettingsHandler\BooksLocationSettings.cs" />
     <Compile Include="BookRepository\FileSystem\BooksLocationSettingsHandler\BooksLocationSettingsManager.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="LogHandler\Config\LogManagerSection.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="BookRepository\BookManager.cs" />
@@ -321,7 +322,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Search\Result.cshtml" />
+    <Content Include="Views\Shared\Result.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Content\bootstrap-theme.css.map" />

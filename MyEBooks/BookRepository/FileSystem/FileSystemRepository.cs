@@ -24,7 +24,7 @@ namespace MyEBooks.Core
             throw new NotImplementedException();
         }
 
-        public IList<Book> GetBooksByCategory(Models.BookCategory bookCategory)
+        public IList<Book> GetBooksByCategory(string categoryName)
         {
             throw new NotImplementedException();
         }
@@ -60,5 +60,6 @@ namespace MyEBooks.Core
             retVal = regEx.IsMatch(searchString);
             return retVal;
         }
+
     }
 }

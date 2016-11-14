@@ -5,11 +5,6 @@ using System.Text;
 
 namespace MyEBooks.Models
 {
-    public enum BookCategory
-    {
-
-    }
-
     public class Book
     {
         public string Title { get; set; }
@@ -19,6 +14,6 @@ namespace MyEBooks.Models
         public int Pages { get; set; }
         public DateTime PublishedDate { get; set; }
         public int SizeMB { get; set; }
-        public BookCategory BookCategory { get; set; }
+        public string BookCategory { get; set; }
     }
 }
