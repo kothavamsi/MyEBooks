@@ -15,9 +15,17 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style type="text/css">
+        .scrollable-menu
+        {
+            height: auto;
+            max-height: 300px;
+            overflow-x: hidden;
+        }
+    </style>
 </head>
 <body>
-<header>
+    <header>
   <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -37,11 +45,12 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" 
           aria-expanded="false">Books <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Vip Books</a></li>
-            <li><a href="#">Audio Books</a></li>
-            <li><a href="#">BioGraphies</a></li> 
-            <li><a href="#">Business</a></li> 
+          <ul class="dropdown-menu scrollable-menu">
+          @foreach (var categoryName in MyEBooks.BookRepository.FileSystem.BooksLocationSettingsHandler.BooksLocationSettings.categories.Keys)
+          {
+              <li>@Html.ActionLink(categoryName, categoryName,"category")</li>
+          }
+            
             <li role="separator" class="divider"></li>
             <li><a href="#">Computer & Internet</a></li> 
             <li role="separator" class="divider"></li>

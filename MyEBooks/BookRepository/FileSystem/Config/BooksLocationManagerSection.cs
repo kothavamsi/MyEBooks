@@ -9,7 +9,7 @@ namespace MyEBooks.LogHandler.Config
     {
         [ConfigurationProperty("", IsRequired = true, IsDefaultCollection = true)]
         [ConfigurationCollection(typeof(LocationElementCollection))]
-        public LocationElementCollection Listeners
+        public LocationElementCollection Locations
         {
             get { return (LocationElementCollection)base[""]; }
         }

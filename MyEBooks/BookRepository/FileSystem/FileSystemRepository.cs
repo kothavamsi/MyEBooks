@@ -26,7 +26,22 @@ namespace MyEBooks.Core
 
         public IList<Book> GetBooksByCategory(string categoryName)
         {
-            throw new NotImplementedException();
+            List<Book> foundBooks = new List<Book>();
+            string categoryLocationTemplate;
+            if (BooksLocationSettings.categories.TryGetValue(categoryName, out categoryLocationTemplate))
+            {
+                var categoryLocations = categoryLocationTemplate.Split(';');
+                foreach (var categoryLocation in categoryLocations)
+                {
+                    string[] files = Directory.GetFiles(categoryLocation, "*.*", SearchOption.AllDirectories);
+                    foreach (string file in files)
+                    {
+                        FileInfo fi = new FileInfo(file);
+                        foundBooks.Add(new Book() { Title = fi.Name });
+                    }
+                }
+            }
+            return foundBooks;
         }
 
         private static List<Book> FindBooks(string keyword)

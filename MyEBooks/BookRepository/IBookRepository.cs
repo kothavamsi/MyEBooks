@@ -11,6 +11,5 @@ namespace MyEBooks.Core
         IList<Book> GetBooksByKeyword(string keyword);
         IList<Book> GetAllBooks();
         IList<Book> GetBooksByCategory(string categoryName);
-
     }
 }

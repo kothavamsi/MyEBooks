@@ -15,7 +15,7 @@ namespace MyEBooks.LogHandler.LogSettingsHandler
         public static void LoadSettings()
         {
             BooksLocationManagerSection blms = (BooksLocationManagerSection)ConfigurationManager.GetSection("booksLocationManager");
-            foreach (LocationElement le in blms.Listeners)
+            foreach (LocationElement le in blms.Locations)
             {
                 BooksLocationSettings.Locations.Add(le.Location);
             }
@@ -25,7 +25,15 @@ namespace MyEBooks.LogHandler.LogSettingsHandler
                 var categoryLocations = Directory.GetDirectories(location);
                 foreach(string categoryLocation in categoryLocations)
                 {
-
+                    var categoryInfo  = new DirectoryInfo(categoryLocation);
+                    string categoryName = categoryInfo.Name;
+                    string categoryPath = categoryInfo.FullName;
+                    string oldCategoryPath;
+                    if (BooksLocationSettings.categories.TryGetValue(categoryName, out oldCategoryPath))
+                    {
+                        categoryPath = oldCategoryPath + ";" + categoryPath;
+                    }
+                    BooksLocationSettings.categories[categoryInfo.Name] = categoryPath;
                 }
             }
         }
