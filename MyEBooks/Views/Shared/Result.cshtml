@@ -2,19 +2,16 @@
     ViewBag.Title = "Search Results";
 }
 @model MyEBooks.Models.SearchResult
-<h1 class="h2 alert-danger">
-    Search Results for: @Model.SearchKeyword (found '@Model.Books.Count()' Books)
-</h1>
-<div>
-    <span>PageSize: @Model.Pager.PageSize</span> <span>PagerDisplayLength: @Model.Pager.PagerDisplayLength</span>
-    <span>TotalItems: @Model.Pager.TotalItems</span> <span>TotalPages: @Model.Pager.TotalPages</span>
-</div>
-@if (@Model.Books.Count == 0)
+@if (Model.IsAvailable)
 {
-    <span>Sorry, no ebooks matched your criteria.</span>
-}
-else
-{
+    <h1 class="warning">
+        Search Results for: @Model.SearchKeyword (found '@Model.Books.Count()' Books)
+    </h1>
+    
+    <div>
+        <span>PageSize: @Model.Pager.PageSize</span> <span>PagerDisplayLength: @Model.Pager.PagerDisplayLength</span>
+        <span>TotalItems: @Model.Pager.TotalItems</span> <span>TotalPages: @Model.Pager.TotalPages</span>
+    </div>
     <div class="container-fluid">
         @foreach (var book in @Model.DisplayedBooks)
         {
@@ -37,4 +34,11 @@ else
         }
         @Html.Partial("_PagerPartial", @Model.Pager)
     </div>
+}
+else
+{
+    <h1 class="h2 alert-danger">
+        Search Results for: @Model.SearchKeyword
+    </h1>
+    <p>Sorry, no ebooks matched your criteria.</p>
 }

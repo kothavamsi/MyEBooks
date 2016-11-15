@@ -7,6 +7,7 @@ namespace MyEBooks.Models
 {
     public class SearchResult
     {
+        public bool IsAvailable { get; set; }
         public string SearchKeyword { get; set; }
         public IList<Book> Books { get; set; }
         public IList<Book> DisplayedBooks { get; set; }
@@ -19,7 +20,7 @@ namespace MyEBooks.Models
             SearchKeyword = "";
             PageNo = 1;
             Pager = new Pager();
-
+            IsAvailable = false;
         }
     }
 }

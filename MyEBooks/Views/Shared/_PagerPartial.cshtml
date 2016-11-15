@@ -3,7 +3,9 @@
     int i = 0;
     string className = "";
 }
-<nav aria-label="Page navigation">
+@if (@Model.IsRenderable)
+{
+    <nav aria-label="Page navigation">
   <ul class="pagination">
 
         @if (@Model.IsFirstVisible)
@@ -25,15 +27,15 @@
 
         @if (@Model.IsPreviousEnabled)
         {
-            <li class="visible-lg-inline"><a href="@Url.Action("index", new { page = "page", pageNo = @Model.CurrentIndex - 1 })">← Previous</a></li>
-            <li class="visible-md-inline visible-sm-inline visible-xs-inline">
+            <li class="visible-lg-inline visible-md-inline"><a href="@Url.Action("index", new { page = "page", pageNo = @Model.CurrentIndex - 1 })">← Previous</a></li>
+            <li class=" visible-sm-inline visible-xs-inline">
                 <a href="@Url.Action("index", new { page = "page", pageNo = @Model.CurrentIndex - 1 })">←</a>
             </li>
         }
         else
         {
-             <li class="visible-lg-inline disabled"><a href="#">← Previous</a></li>
-             <li class="visible-md-inline visible-sm-inline visible-xs-inline disabled"><a href="#">←</a></li>
+             <li class="visible-lg-inline visible-md-inlinedisabled"><a href="#">← Previous</a></li>
+             <li class=" visible-sm-inline visible-xs-inline disabled"><a href="#">←</a></li>
         }
     
 
@@ -49,15 +51,15 @@
         
         @if (@Model.IsNextEnabled)
         {
-            <li class="visible-lg-inline"><a href="@Url.Action("index", new { page = "page", pageNo = @Model.CurrentIndex + 1 })">Next →</a></li>
-            <li class="visible-md-inline visible-sm-inline visible-xs-inline">
+            <li class="visible-lg-inline visible-md-inline"><a href="@Url.Action("index", new { page = "page", pageNo = @Model.CurrentIndex + 1 })">Next →</a></li>
+            <li class=" visible-sm-inline visible-xs-inline">
                 <a href="@Url.Action("index", new { page = "page", pageNo = @Model.CurrentIndex + 1 })">→</a>
             </li>
         }
         else
         {
-            <li class="visible-lg-inline disabled"><a href="#">Next →</a></li>
-            <li class="visible-md-inline visible-sm-inline visible-xs-inline disabled"><a href="#">→</a></li>
+            <li class="visible-lg-inline disabled visible-md-inline"><a href="#">Next →</a></li>
+            <li class=" visible-sm-inline visible-xs-inline disabled"><a href="#">→</a></li>
         }
 
         @if (@Model.IsLastVisible)
@@ -78,3 +80,4 @@
         }
   </ul>
 </nav>
+}

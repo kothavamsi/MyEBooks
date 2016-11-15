@@ -8,6 +8,7 @@ namespace MyEBooks.Models
 {
     public class Pager
     {
+        public bool IsRenderable { get; set; }
         public int PageSize { get; set; }
         public int TotalItems { get; set; }
         public int TotalPages { get; set; }
@@ -26,6 +27,7 @@ namespace MyEBooks.Models
             PageSize = PagerSettings.PageSize == 0 ? 10 : PagerSettings.PageSize;
             IsNextEnabled = false;
             IsPreviousEnabled = false;
+            IsRenderable = false;
         }
 
         public Pager GetPager(int totalItems, int pageNo)
@@ -33,6 +35,10 @@ namespace MyEBooks.Models
             CurrentIndex = pageNo;
             TotalItems = totalItems;
             TotalPages = (totalItems / PageSize) + ((totalItems % PageSize) > 0 ? 1 : 0);
+            if (TotalPages > 1)
+                IsRenderable = true;
+            else
+                IsRenderable = false;
 
             // If pager can move right wards
             if (TotalPages > PagerDisplayLength)
