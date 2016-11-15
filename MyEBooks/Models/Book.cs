@@ -13,7 +13,7 @@ namespace MyEBooks.Models
         public string ISBN_13 { get; set; }
         public int Pages { get; set; }
         public DateTime PublishedDate { get; set; }
-        public int SizeMB { get; set; }
+        public double SizeMB { get; set; }
         public string BookCategory { get; set; }
     }
 }

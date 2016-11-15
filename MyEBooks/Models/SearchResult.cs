@@ -9,11 +9,12 @@ namespace MyEBooks.Models
     {
         public string SearchKeyword { get; set; }
         public IList<Book> Books { get; set; }
-
+        public int PageNo { get; set; }
         public SearchResult()
         {
             Books = new List<Book>();
             SearchKeyword = "";
+            PageNo = 1;
         }
     }
 }

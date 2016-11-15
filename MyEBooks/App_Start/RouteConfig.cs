@@ -15,14 +15,14 @@ namespace MyEBooks
 
             routes.MapRoute(
                 name: "Search",
-                url: "search/{keyword}",
-                defaults: new { controller = "Search", action = "Index", keyword = UrlParameter.Optional }
+                url: "search/{keyword}/{page}/{pageNo}",
+                defaults: new { controller = "Search", action = "Index", keyword = UrlParameter.Optional, page = UrlParameter.Optional, pageNo = 1 }
             );
 
             routes.MapRoute(
                 name: "Category",
-                url: "category/{categoryName}",
-                defaults: new { controller = "Category", action = "Index", categoryName = UrlParameter.Optional }
+                url: "category/{categoryName}/{page}/{pageNo}",
+                defaults: new { controller = "Category", action = "Index", categoryName = UrlParameter.Optional, page = UrlParameter.Optional, pageNo = 1 }
             );
 
             routes.MapRoute(

@@ -11,17 +11,17 @@ namespace MyEBooks.Controllers
 {
     public class CategoryController : Controller
     {
-        public ActionResult Index(string categoryName)
+        public ActionResult Index(string categoryName, int pageNo)
         {
             SearchResult searchResult;
             if (string.IsNullOrEmpty(categoryName))
             {
-                searchResult = new SearchResult() { Books = new List<Book>(), SearchKeyword = "" };
+                searchResult = new SearchResult() { Books = new List<Book>(), SearchKeyword = "", PageNo = pageNo };
             }
             else
             {
                 var books = FindBooks(categoryName);
-                searchResult = new SearchResult() { Books = books, SearchKeyword = categoryName };
+                searchResult = new SearchResult() { Books = books, SearchKeyword = categoryName, PageNo = pageNo };
             }
             LogManager.Write(new RequestInformation()
             {

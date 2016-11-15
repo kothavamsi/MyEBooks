@@ -13,13 +13,26 @@
 }
 else
 {
-    for (row = 0; row < totalRows - 1; row++)
-    {
-    <div class="row ">
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">@Model.Books[row * 4 + 0].Title.Substring(0,10)</div>
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">@Model.Books[row * 4 + 1].Title.Substring(0, 10)</div>
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">@Model.Books[row * 4 + 2].Title.Substring(0, 10)</div>
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">@Model.Books[row * 4 + 3].Title.Substring(0, 10)</div>
+    <div class="container-fluid">
+    <h1>Page Number:@Model.PageNo</h1>
+        @for (row = 0; row < totalRows - 1; row++)
+        {
+            <div class="row ">
+                    <div class="panel panel-default">
+                        <div class="panel-heading text-nowrap">
+                            <h3 class="panel-title">
+                                @Model.Books[row * 4 + 0].Title</h3>
+                        </div>
+                        <div class="panel-body">
+                            <span>@Model.Books[row * 4 + 0].SizeMB</span>
+                            <span>@Model.Books[row * 4 + 0].PublishedDate</span>
+                            A jumbotron indicates a big box for calling extra attention to some special content
+                            or information.A jumbotron is displayed as a grey box with rounded corners. It also
+                            enlarges the font sizes of the text inside it.Tip: Inside a jumbotron you can put
+                            nearly any valid HTML, including other Bootstrap elements/classes.
+                     </div>
+                </div>
+            </div>
+        }
     </div>
-    }
 }

@@ -36,8 +36,8 @@ namespace MyEBooks.Core
                     string[] files = Directory.GetFiles(categoryLocation, "*.*", SearchOption.AllDirectories);
                     foreach (string file in files)
                     {
-                        FileInfo fi = new FileInfo(file);
-                        foundBooks.Add(new Book() { Title = fi.Name });
+                        var book = MapFileToBook(file);
+                        foundBooks.Add(book);
                     }
                 }
             }
@@ -62,10 +62,19 @@ namespace MyEBooks.Core
             var foundFiles = files.Select(f => new { FileNameOrginalCase = f, FileNameLowerCase = f.ToLower() }).Where(f => FileNameContains(f.FileNameLowerCase, keyword)).Select(f => f.FileNameOrginalCase).ToList();
             foreach (string file in foundFiles)
             {
-                FileInfo fi = new FileInfo(file);
-                foundBooks.Add(new Book() { Title = fi.Name });
+                var book = MapFileToBook(file);
+                foundBooks.Add(book);
             }
             return foundBooks;
+        }
+
+        private static Book MapFileToBook(string file)
+        {
+            FileInfo fi = new FileInfo(file);
+            double fileLength = fi.Length;
+            double kbFileLength = fileLength / 1024;
+            double mbFileLength = kbFileLength / 1024;
+            return new Book() { Title = fi.Name, SizeMB = mbFileLength,PublishedDate=fi.CreationTime };
         }
 
         private static bool FileNameContains(string searchString, string keyword)
