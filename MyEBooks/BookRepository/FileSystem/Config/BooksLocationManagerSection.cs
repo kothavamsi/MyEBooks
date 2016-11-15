@@ -3,7 +3,7 @@ using System.Configuration;
 using System.Globalization;
 using MyEBooks.LogHandler.LogSettingsHandler;
 
-namespace MyEBooks.LogHandler.Config
+namespace MyEBooks.BookRepository.FileSystem.Config
 {
     public class BooksLocationManagerSection : ConfigurationSection
     {

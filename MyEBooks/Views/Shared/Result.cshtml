@@ -1,12 +1,14 @@
 ﻿@{
     ViewBag.Title = "Search Results";
-    int totalRows = @Model.Books.Count / 4;
-    int row = 0;
 }
 @model MyEBooks.Models.SearchResult
 <h1 class="h2 alert-danger">
     Search Results for: @Model.SearchKeyword (found '@Model.Books.Count()' Books)
 </h1>
+<div>
+    <span>PageSize: @Model.Pager.PageSize</span> <span>PagerDisplayLength: @Model.Pager.PagerDisplayLength</span>
+    <span>TotalItems: @Model.Pager.TotalItems</span> <span>TotalPages: @Model.Pager.TotalPages</span>
+</div>
 @if (@Model.Books.Count == 0)
 {
     <span>Sorry, no ebooks matched your criteria.</span>
@@ -14,25 +16,25 @@
 else
 {
     <div class="container-fluid">
-    <h1>Page Number:@Model.PageNo</h1>
-        @for (row = 0; row < totalRows - 1; row++)
+        @foreach (var book in @Model.DisplayedBooks)
         {
-            <div class="row ">
+            <div class="row">
+                <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading text-nowrap">
-                            <h3 class="panel-title">
-                                @Model.Books[row * 4 + 0].Title</h3>
+                            <h3 class="panel-title">@book.Title</h3>
                         </div>
                         <div class="panel-body">
-                            <span>@Model.Books[row * 4 + 0].SizeMB</span>
-                            <span>@Model.Books[row * 4 + 0].PublishedDate</span>
-                            A jumbotron indicates a big box for calling extra attention to some special content
-                            or information.A jumbotron is displayed as a grey box with rounded corners. It also
-                            enlarges the font sizes of the text inside it.Tip: Inside a jumbotron you can put
-                            nearly any valid HTML, including other Bootstrap elements/classes.
-                     </div>
+                            <span>@book.SizeMB</span> <span>@book.PublishedDate</span> A jumbotron indicates
+                            a big box for calling extra attention to some special content or information.A jumbotron
+                            is displayed as a grey box with rounded corners. It also enlarges the font sizes
+                            of the text inside it.Tip: Inside a jumbotron you can put nearly any valid HTML,
+                            including other Bootstrap elements/classes.
+                        </div>
+                    </div>
                 </div>
             </div>
         }
+        @Html.Partial("_PagerPartial", @Model.Pager)
     </div>
 }

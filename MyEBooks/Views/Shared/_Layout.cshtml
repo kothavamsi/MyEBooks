@@ -8,7 +8,10 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
+
+    @*<link type="text/css" href="../../Content/bootstrap.min.css" rel="Stylesheet"/>*@
+    <link type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="Stylesheet"/>
+    
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -76,7 +79,7 @@
                         </ul>
                     </li>
       </ul>
-      <form class="navbar-form navbar-left form-inline" method="post">
+      <form class="navbar-form navbar-left form-inline" method="post" action="/search/index">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search" id="keyword" name="keyword">
         </div>
@@ -124,8 +127,11 @@
     @Scripts.Render("~/bundles/jquery")
     @RenderSection("scripts", required: false)
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    @*<script type="text/javascript" src="../../Scripts/jquery-3.1.1.min.js"></script>*@
+    <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../../Scripts/bootstrap.min.js"></script>
+    @*<script type="text/javascript" src="../../Scripts/bootstrap.min.js"></script>*@
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
 </body>
 </html>

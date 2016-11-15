@@ -1,7 +1,7 @@
 ﻿using System.Configuration;
-using MyEBooks.BookRepository.FileSystem.BooksLocationSettingsHandler;
-using MyEBooks.LogHandler.Config;
 using System.IO;
+using MyEBooks.BookRepository.FileSystem.BooksLocationSettingsHandler;
+using MyEBooks.BookRepository.FileSystem.Config;
 
 namespace MyEBooks.LogHandler.LogSettingsHandler
 {

@@ -8,6 +8,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using MyEBooks.LogHandler.LogSettingsHandler;
 using MyEBooks.LogHandler;
+using MyEBooks.PagerHandler.PagerSettingsHandler;
 
 namespace MyEBooks
 {
@@ -29,6 +30,7 @@ namespace MyEBooks
             LogSettingsManager.LoadSettings();
             LogManager.Initalize();
             BooksLocationSettingsManager.LoadSettings();
+            PagerSettingsManager.LoadSettings();
         }
     }
 }
