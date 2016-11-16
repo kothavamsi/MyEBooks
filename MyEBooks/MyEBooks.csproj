@@ -200,8 +200,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\BreakingNewsTickerCss\ticker.css" />
-    <Content Include="Content\NewsTickerCss\news-ticker.css" />
+    <Content Include="Content\BreakingNewsTickerCss\Bn-ticker.css" />
+    <Content Include="Content\RecentActivityTickerCss\Ra-ticker.css" />
     <Content Include="Content\SiteCss\site.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -215,7 +215,7 @@
     <Content Include="LogHandler\HtmlLog\HtmlTemplate.htm" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\BreakingNewsTickerJs\ticker.js" />
+    <Content Include="Scripts\BreakingNewsTickerJs\Bn-ticker.js" />
     <Content Include="Scripts\jquery-3.1.1-vsdoc.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
@@ -223,7 +223,7 @@
     <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
-    <Content Include="Scripts\NewsTickerJs\jquery.bootstrap.newsbox.min.js" />
+    <Content Include="Scripts\RecentActivityTickerJs\Ra-ticker.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -283,7 +283,7 @@
     <Content Include="Views\Shared\_FooterPartial.cshtml" />
     <Content Include="Views\Shared\_HomeLayout.cshtml" />
     <Content Include="Views\Shared\_HtmlHeadPartial.cshtml" />
-    <Content Include="Views\Shared\_NewsTickerPartial.cshtml" />
+    <Content Include="Views\Shared\_RecentActivityTickerPartial.cshtml" />
     <Content Include="Views\Shared\_BreakingNewsPartial.cshtml" />
   </ItemGroup>
   <PropertyGroup>
