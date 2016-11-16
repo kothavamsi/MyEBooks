@@ -18,8 +18,8 @@ namespace MyEBooks.Models
         public int CurrentIndex { get; set; }
         public bool IsPreviousEnabled { get; set; }
         public bool IsNextEnabled { get; set; }
-        public bool IsFirstVisible { get; set; }
-        public bool IsLastVisible { get; set; }
+        public bool IsFirstEnabled { get; set; }
+        public bool IsLastEnabled { get; set; }
 
         public Pager()
         {
@@ -77,24 +77,41 @@ namespace MyEBooks.Models
             if (IsPageAtEnd(pageNo))
             {
                 IsNextEnabled = false;
-                IsLastVisible = false;
             }
             else
             {
                 IsNextEnabled = true;
-                IsLastVisible = true;
             }
 
             // prevButton enable or disable ?
             if (IsPageAtStart(pageNo))
             {
                 IsPreviousEnabled = false;
-                IsFirstVisible = false;
             }
             else
             {
                 IsPreviousEnabled = true;
-                IsFirstVisible = true;
+            }
+
+
+            // firstButton enable or disable ?
+            if (IsPageAffinityTowardsStart(pageNo))
+            {
+                IsFirstEnabled = false;
+            }
+            else
+            {
+                IsFirstEnabled = true;
+            }
+
+            // lastButton enable or disable ?
+            if (IsPageAffinityTowardsEnd(pageNo))
+            {
+                IsLastEnabled = false;
+            }
+            else
+            {
+                IsLastEnabled = true;
             }
 
 
