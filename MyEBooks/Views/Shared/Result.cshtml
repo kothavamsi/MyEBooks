@@ -4,9 +4,17 @@
 @model MyEBooks.Models.SearchResult
 @if (Model.IsAvailable)
 {
-    <h1 class="warning">
-        Search Results for: @Model.SearchKeyword (found '@Model.Books.Count()' Books)
-    </h1>
+    <div class="visible-lg-inline visible-md-inline">
+        <h2>
+            Search Results for: @Model.SearchKeyword (found '@Model.Books.Count()' Books)
+        </h2>
+    </div>
+    <div class="visible-sm-inline visible-xs-inline">
+        <h3>
+            Search Results for: @Model.SearchKeyword (found '@Model.Books.Count()' Books)
+        </h3>
+    </div>
+    
     
     <div>
         <span>PageSize: @Model.Pager.PageSize</span> <span>PagerDisplayLength: @Model.Pager.PagerDisplayLength</span>
@@ -19,7 +27,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading text-nowrap">
-                            <h3 class="panel-title">@book.Title</h3>
+                            <h3 class="panel-title">@book.Title.Substring(0,10)</h3>
                         </div>
                         <div class="panel-body">
                             <span>@book.SizeMB</span> <span>@book.PublishedDate</span> A jumbotron indicates
@@ -32,7 +40,9 @@
                 </div>
             </div>
         }
-        @Html.Partial("_PagerPartial", @Model.Pager)
+        <div class="container-fluid text-center">
+            @Html.Partial("_PagerPartial", @Model.Pager)
+        </div>
     </div>
 }
 else
