@@ -16,7 +16,7 @@ namespace MyEBooks
             routes.MapRoute(
                 name: "Search",
                 url: "search/{keyword}/{page}/{pageNo}",
-                defaults: new { controller = "Search", action = "Index", keyword = "", page = UrlParameter.Optional, pageNo = 1 }
+                defaults: new { controller = "Search", action = "Index", keyword = UrlParameter.Optional, page = UrlParameter.Optional, pageNo = 1 }
             );
 
             routes.MapRoute(

@@ -10,22 +10,46 @@ namespace MyEBooks.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-
             return View();
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your app description page.";
-
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            return View();
+        }
 
+        public ActionResult PrivacyPolicy()
+        {
+            return View();
+        }
+
+        public ActionResult FAQ()
+        {
+            return View();
+        }
+
+        public ActionResult RSS()
+        {
+            return View();
+        }
+
+        public ActionResult DMCA()
+        {
+            return View();
+        }
+
+        public ActionResult Donate()
+        {
+            return View();
+        }
+
+        public ActionResult Sitemap()
+        {
             return View();
         }
     }
