@@ -26,13 +26,24 @@ namespace MyEBooks
         }
 
         // POST api/<controller>
-        public void Post([FromBody]Book book)
+        public HttpResponseMessage Post([FromBody]Book book)
         {
-            repository.AddBook(book);
+            try
+            {
+                repository.AddBook(book);
+                var response = Request.CreateResponse(HttpStatusCode.Created, book);
+                response.Headers.Location = new Uri(Request.RequestUri + "/" +book.Id.ToString());
+                return response;
+            }
+            catch (Exception e)
+            {
+                var response = Request.CreateErrorResponse(HttpStatusCode.BadRequest, e.ToString());
+                return response;
+            }
         }
 
         // PUT api/<controller>/5
-        public void Put(int id, [FromBody]Book book)
+        public void Put([FromBody]Book book)
         {
             repository.UpdateBook(book);
         }
