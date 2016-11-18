@@ -2,7 +2,7 @@
     ViewBag.Title = "Search Results";
 }
 @model MyEBooks.Models.SearchResult
-@if (Model.IsAvailable)
+@if (Model.FoundResult)
 {
     <div class="visible-lg-inline visible-md-inline">
         <h2>
@@ -27,7 +27,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading text-nowrap">
-                            <h3 class="panel-title">@book.Title.Substring(0,10)</h3>
+                            <h3 class="panel-title">@book.Title.Substring(0, 10)</h3>
                         </div>
                         <div class="panel-body">
                             <span>@book.SizeMB</span> <span>@book.PublishedDate</span> A jumbotron indicates
@@ -50,5 +50,6 @@ else
     <h1 class="h2 alert-danger">
         Search Results for: @Model.SearchKeyword
     </h1>
-    <p>Sorry, no ebooks matched your criteria.</p>
+    <p>
+        Sorry, no ebooks matched your criteria.</p>
 }

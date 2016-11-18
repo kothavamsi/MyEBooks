@@ -17,7 +17,7 @@
                     <ul class="dropdown-menu scrollable-menu">
                         @foreach (var categoryName in MyEBooks.BookRepository.FileSystem.BooksLocationSettingsHandler.BooksLocationSettings.categories.Keys)
                         {
-                            <li>@Html.ActionLink(categoryName, categoryName, "category")</li>
+                            <li>@Html.ActionLink(categoryName, categoryName.ToLower(), "category")</li>
                         }
                         <li role="separator" class="divider"></li>
                         <li><a href="#">Computer & Internet</a></li>

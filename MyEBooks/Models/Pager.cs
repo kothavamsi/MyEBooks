@@ -30,11 +30,17 @@ namespace MyEBooks.Models
             IsRenderable = false;
         }
 
+        public int GetPageCount(int totalItems)
+        {
+            return (totalItems / PageSize) + ((totalItems % PageSize) > 0 ? 1 : 0);
+        }
+
         public Pager GetPager(int totalItems, int pageNo)
         {
             CurrentIndex = pageNo;
             TotalItems = totalItems;
-            TotalPages = (totalItems / PageSize) + ((totalItems % PageSize) > 0 ? 1 : 0);
+
+            TotalPages = GetPageCount(totalItems);
             if (TotalPages > 1)
                 IsRenderable = true;
             else

@@ -74,7 +74,7 @@ namespace MyEBooks.Core
             double fileLength = fi.Length;
             double kbFileLength = fileLength / 1024;
             double mbFileLength = kbFileLength / 1024;
-            return new Book() { Title = fi.Name, SizeMB = mbFileLength,PublishedDate=fi.CreationTime };
+            return new Book() { Title = fi.Name, SizeMB = mbFileLength, PublishedDate = fi.CreationTime };
         }
 
         private static bool FileNameContains(string searchString, string keyword)

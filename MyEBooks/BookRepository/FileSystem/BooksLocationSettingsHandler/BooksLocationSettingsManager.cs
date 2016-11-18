@@ -26,14 +26,14 @@ namespace MyEBooks.LogHandler.LogSettingsHandler
                 foreach(string categoryLocation in categoryLocations)
                 {
                     var categoryInfo  = new DirectoryInfo(categoryLocation);
-                    string categoryName = categoryInfo.Name;
+                    string categoryName = categoryInfo.Name.ToLower();
                     string categoryPath = categoryInfo.FullName;
                     string oldCategoryPath;
                     if (BooksLocationSettings.categories.TryGetValue(categoryName, out oldCategoryPath))
                     {
                         categoryPath = oldCategoryPath + ";" + categoryPath;
                     }
-                    BooksLocationSettings.categories[categoryInfo.Name] = categoryPath;
+                    BooksLocationSettings.categories[categoryName] = categoryPath.ToLower();
                 }
             }
         }

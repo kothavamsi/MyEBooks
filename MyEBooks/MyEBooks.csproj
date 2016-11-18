@@ -207,6 +207,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\BreakingNewsTickerCss\Bn-ticker.css" />
+    <Content Include="Content\BreakingNewsTickerCss\ticker-caption-bg.png" />
     <Content Include="Content\RecentActivityTickerCss\Ra-ticker.css" />
     <Content Include="Content\SiteCss\site.css" />
     <Content Include="favicon.ico" />
@@ -276,6 +277,9 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Books.Designer.cs</LastGenOutput>
     </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_AdsPartial.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

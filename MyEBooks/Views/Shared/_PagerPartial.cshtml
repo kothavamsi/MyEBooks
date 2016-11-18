@@ -9,17 +9,17 @@
         <ul class="pagination pagination-sm">
             @if (@Model.IsFirstEnabled)
             {
-                <li><a href="@Url.Action("index", new { page = "page", pageNo = 1 })" ><span aria-hidden="true">
-                    &laquo;&laquo;</span> </a></li>
+                <li><a href="@Url.Action("index", new { pageNo = 1 })" ><span aria-hidden="true">&laquo;&laquo;</span>
+                </a></li>
             }
             else
             {
-                <li class="disabled"><a href="@Url.Action("index", new { page = "page", pageNo = 1 })" >
-                    <span aria-hidden="true">&laquo;&laquo;</span> </a></li>
+                <li class="disabled"><a href="@Url.Action("index", new { pageNo = 1 })" ><span aria-hidden="true">
+                    &laquo;&laquo;</span> </a></li>
             }
             @if (@Model.IsPreviousEnabled)
             {
-                <li><a href="@Url.Action("index", new { page = "page", pageNo = @Model.CurrentIndex - 1 })" aria-label="Previous">
+                <li><a href="@Url.Action("index", new { pageNo = @Model.CurrentIndex - 1 })" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span> </a></li>
             }
             else
@@ -34,11 +34,11 @@
                 {
                     className = "active";
                 }
-                <li class="@className">@Html.ActionLink(@i.ToString(), "index", new { page = "page", pageNo = @i })</li>
+                <li class="@className">@Html.ActionLink(@i.ToString(), "index", new { pageNo = @i })</li>
             }
             @if (@Model.IsNextEnabled)
             {
-                <li><a href="@Url.Action("index", new { page = "page", pageNo = @Model.CurrentIndex + 1 })" aria-label="Next">
+                <li><a href="@Url.Action("index", new { pageNo = @Model.CurrentIndex + 1 })" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span> </a></li>
             }
             else
@@ -48,12 +48,12 @@
             }
             @if (@Model.IsLastEnabled)
             {
-                <li><a href="@Url.Action("index", new { page = "page", pageNo = @Model.TotalPages })">
-                    <span aria-hidden="true">&raquo;&raquo;</span> </a></li>
+                <li><a href="@Url.Action("index", new { pageNo = @Model.TotalPages })"><span aria-hidden="true">
+                    &raquo;&raquo;</span> </a></li>
             }
             else
             {
-                <li class="disabled"><a href="@Url.Action("index", new { page = "page", pageNo = @Model.TotalPages })">
+                <li class="disabled"><a href="@Url.Action("index", new { pageNo = @Model.TotalPages })">
                     <span aria-hidden="true">&raquo;&raquo;</span> </a></li>
             }
         </ul>
