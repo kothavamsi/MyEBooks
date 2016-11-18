@@ -211,7 +211,9 @@
     <Content Include="Content\BreakingNewsTickerCss\ticker-caption-bg.png" />
     <Content Include="Content\RecentActivityTickerCss\Ra-ticker.css" />
     <Content Include="Content\SiteCss\site.css" />
-    <Content Include="Content\TagCloudCss\jqcloud.css" />
+    <Content Include="Content\TagCloudRandomCss\jqcloud.css" />
+    <Content Include="Content\TagCloudSquareCss\jquerysctipttop.css" />
+    <Content Include="Content\TagCloudSquareCss\Roboto.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="NewsTickerImages\1.png" />
@@ -224,7 +226,9 @@
     <Content Include="LogHandler\HtmlLog\HtmlTemplate.htm" />
     <Content Include="Scripts\BreakingNewsTickerJs\Bn-ticker.js" />
     <Content Include="Scripts\RecentActivityTickerJs\Ra-ticker.js" />
-    <Content Include="Scripts\TagCloudJs\jqcloud-1.0.4.min.js" />
+    <Content Include="Scripts\TagCloudRandomJs\jqcloud-1.0.4.min.js" />
+    <Content Include="Scripts\TagCloudSquareJs\jquery-1.11.3.min.js" />
+    <Content Include="Scripts\TagCloudSquareJs\jquery.tagcloud.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -285,7 +289,10 @@
     <Content Include="Views\Shared\_AdsPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\_TagCloudPartial.cshtml" />
+    <Content Include="Views\Shared\_TagCloudRandomPartial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_TagCloudSquarePartial.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
