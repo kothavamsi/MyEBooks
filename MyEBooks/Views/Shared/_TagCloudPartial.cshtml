@@ -1,0 +1,19 @@
+﻿<script type="text/javascript">
+    $(function () {
+        $.getJSON("/api/TagCloud", function (data) {
+            var items = [];
+            $.each(data, function (index, element) {
+                items.push({ text: element.Text, weight: element.Weight, link: element.Link });
+            });
+            $("#tagCloud").jQCloud(items)
+        });
+    });
+</script>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+            <div id="tagCloud" style="width: 350px; height: 250px;">
+            </div>
+        </div>
+    </div>
+</div>
