@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="/Content/SiteCss/site.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- START : RecentActivityTicker Related Stuff --->
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet"
+    type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<link href="/Content/RecentActivityTickerCss/Ra-ticker.css" rel="stylesheet" type="text/css" />
+<script src="/Scripts/RecentActivityTickerJs/Ra-ticker.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        $(".demo1").bootstrapNews({
+            newsPerPage: 3,
+            autoplay: true,
+            pauseOnHover: true,
+            direction: 'up',
+            newsTickerInterval: 4000,
+            onToDo: function () {
+                //console.log(this);
+            }
+        });
+    });
+</script>
+<!-- END : RecentActivityTicker Related Stuff --->
+<!-- START : BreakingNews Ticker Related Stuff --->
+<link href="/Content/BreakingNewsTickerCss/Bn-ticker.css" rel="stylesheet" type="text/css" />
+<script src="/Scripts/BreakingNewsTickerJs/Bn-ticker.js"></script>
+<!-- END : BreakingNews Ticker Related Stuff --->
+<!-- START : TagCloud Related Stuff --->
+<link href="/Content/TagCloudRandomCss/jqcloud.css" rel="stylesheet" type="text/css" />
+<script src="/Scripts/TagCloudRandomJs/jqcloud-1.0.4.min.js"></script>
+<!-- END : TagCloud Related Stuff --->
+
+
+
+
+<link href="Content/TagCloudSquareCss/Roboto.css" rel='stylesheet' type='text/css'>
+<link href="Content/TagCloudSquareCss/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<script src="Scripts/TagCloudSquareJs/jquery-1.11.3.min.js"></script>
+<script src="Scripts/TagCloudSquareJs/jquery.tagcloud.js"></script>
+<style>
+body { font-family:'roboto'; background-color:#fafafa;}
+.container { margin:150px auto; max-width:400px;}
+.container a { text-decoration:none;}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<div id="tagcloud">
+        <a href="#" rel="0.1">Lorem</a>
+        <a href="#" rel="2">ipsum</a>
+        <a href="#" rel="3">dolor</a>
+        <a href="#" rel="4">sit</a>
+        <a href="#" rel="5">amet,</a>
+        <a href="#" rel="6">consectetur</a>
+        <a href="#" rel="7">adipisicing</a>
+        <a href="#" rel="8">elit,</a>
+        <a href="#" rel="5">sed</a>
+        <a href="#" rel="7">do</a>
+        <a href="#" rel="3">eiusmod</a>
+        <a href="#" rel="1">tempor</a>
+        <a href="#" rel="12">incididunt</a>
+        <a href="#" rel="1">ut</a>
+        <a href="#" rel="2">labore</a>
+        <a href="#" rel="5">et</a>
+        <a href="#" rel="7">dolore</a>
+        <a href="#" rel="1">magna</a>
+        <a href="#" rel="4">aliqua.</a>
+        <a href="#" rel="1">Ut</a>
+        <a href="#" rel="2">enim</a>
+        <a href="#" rel="10">ad</a>
+        <a href="#" rel="4">minim</a>
+        <a href="#" rel="1">veniam,</a>
+        <a href="#" rel="1">quis</a>
+        <a href="#" rel="8">nostrud</a>
+        <a href="#" rel="1">exercitation</a>
+        <a href="#" rel="3">ullamco</a>
+        <a href="#" rel="1">laboris</a>
+        <a href="#" rel="11">nisi</a>
+        <a href="#" rel="10">ut</a>
+        <a href="#" rel="3">aliquip</a>
+        <a href="#" rel="5">ex</a>
+        <a href="#" rel="1">ea</a>
+        <a href="#" rel="1">commodo</a>
+        <a href="#" rel="6">consequat.</a>
+        <a href="#" rel="1">Duis</a>
+        <a href="#" rel="1">aute</a>
+        <a href="#" rel="1">irure</a>
+        <a href="#" rel="1">dolor</a>
+        <a href="#" rel="1">in</a>
+        <a href="#" rel="1">reprehenderit</a>
+        <a href="#" rel="1">in</a>
+        <a href="#" rel="1">voluptate</a>
+        <a href="#" rel="1">velit</a>
+      </div>
+
+<script>
+$("#tagcloud a").tagcloud({
+	size: {start: 12, end: 36, unit: "px"},
+	color: {start: '#3498DB', end: '#46CFB0'}
+});
+</script>
+</div>
+</body>
+</html>
