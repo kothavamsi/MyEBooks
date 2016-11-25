@@ -166,6 +166,7 @@
     <Compile Include="BookRepository\FileSystem\Config\BooksLocationManagerSection.cs" />
     <Compile Include="BookRepository\FileSystem\BooksLocationSettingsHandler\BooksLocationSettings.cs" />
     <Compile Include="BookRepository\FileSystem\BooksLocationSettingsHandler\BooksLocationSettingsManager.cs" />
+    <Compile Include="Models\ContactUs.cs" />
     <Compile Include="WebApi\Books.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -207,6 +208,10 @@
     <Compile Include="WebApi\TagCloudController.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\BreakingNewsTickerCss\Bn-ticker.css" />
     <Content Include="Content\BreakingNewsTickerCss\ticker-caption-bg.png" />
     <Content Include="Content\RecentActivityTickerCss\Ra-ticker.css" />
@@ -224,7 +229,14 @@
     <Content Include="NewsTickerImages\6.png" />
     <Content Include="NewsTickerImages\7.png" />
     <Content Include="LogHandler\HtmlLog\HtmlTemplate.htm" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\BreakingNewsTickerJs\Bn-ticker.js" />
+    <Content Include="Scripts\jquery-3.1.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-3.1.1.js" />
+    <Content Include="Scripts\jquery-3.1.1.min.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
     <Content Include="Scripts\RecentActivityTickerJs\Ra-ticker.js" />
     <Content Include="Scripts\TagCloudRandomJs\jqcloud-1.0.4.min.js" />
     <Content Include="Scripts\TagCloudSquareJs\jquery-1.11.3.min.js" />
@@ -293,6 +305,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_TagCloudSquarePartial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Content\bootstrap-theme.css.map" />
+    <None Include="Content\bootstrap-theme.min.css.map" />
+    <None Include="Content\bootstrap.css.map" />
+    <None Include="Content\bootstrap.min.css.map" />
+    <None Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="fonts\glyphicons-halflings-regular.svg" />
+    <None Include="fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="fonts\glyphicons-halflings-regular.woff" />
+    <None Include="fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="Scripts\jquery-3.1.1.min.map" />
+    <None Include="Scripts\jquery-3.1.1.slim.min.map" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

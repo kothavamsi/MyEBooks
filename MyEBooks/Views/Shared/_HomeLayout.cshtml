@@ -1,12 +1,16 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@ViewBag.Title</title>
-    @Html.Partial("_HtmlHeadPartial")
+    @Styles.Render("~/bundles/styles")
+    @Scripts.Render("~/bundles/scripts")
+    @*@Html.Partial("_HtmlHeadPartial")*@
 </head>
 <body>
     <header>
-        @Html.Partial("_NavbarPartial");
+        @Html.Partial("_NavbarPartial")
     </header>
     <div class="container-fluid text-center">
         <div class="row content">
@@ -20,8 +24,7 @@
                     <div class="col-lg-12">
                         @Html.Partial("_TagCloudRandomPartial")
                     </div>
-                </div>*@
-                @*<div class="row content">
+                </div>*@ @*<div class="row content">
                     <div class="col-lg-12">
                         @Html.Partial("_TagCloudSquarePartial")
                     </div>

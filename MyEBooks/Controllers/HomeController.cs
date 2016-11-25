@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MyEBooks.Models;
 
 namespace MyEBooks.Controllers
 {
@@ -21,6 +22,19 @@ namespace MyEBooks.Controllers
         public ActionResult Contact()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Contact(ContactUs contacctUs)
+        {
+            if (ModelState.IsValid)
+            {
+                return View("ContactSuccess");
+            }
+            else
+            {
+                return View(contacctUs);
+            }
         }
 
         public ActionResult PrivacyPolicy()
