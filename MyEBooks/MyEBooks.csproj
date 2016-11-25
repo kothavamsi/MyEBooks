@@ -221,6 +221,10 @@
     <Content Include="Content\TagCloudSquareCss\Roboto.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\Faq\Step-1-FilePi.png" />
+    <Content Include="Images\Faq\step-1.png" />
+    <Content Include="Images\Faq\step-2.png" />
+    <Content Include="Images\Faq\step-3.png" />
     <Content Include="NewsTickerImages\1.png" />
     <Content Include="NewsTickerImages\2.png" />
     <Content Include="NewsTickerImages\3.png" />
@@ -318,6 +322,7 @@
     <None Include="fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Scripts\jquery-3.1.1.min.map" />
     <None Include="Scripts\jquery-3.1.1.slim.min.map" />
+    <Content Include="Views\Home\ContactSuccess.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

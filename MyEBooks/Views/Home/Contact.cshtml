@@ -135,31 +135,35 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-7">
-            @using (Html.BeginForm("contact","home", FormMethod.Post,new {id="contact_form", @class = "well form-horizontal"}))
-{
-    @*<form class="well form-horizontal" method="post" id="contact_form">*@
+            @using (Html.BeginForm("contact", "home", FormMethod.Post, new { id = "contact_form", @class = "well form-horizontal" }))
+            {
+@*<form class="well form-horizontal" method="post" id="contact_form">*@
                 <fieldset>
                     <legend>Contact Us !</legend>
-
+                    <div class="row">
+                        <div class="col-lg-12 col-sm-12 col-xs-12">&nbsp;
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label class="col-md-3 control-label">
                             First Name *</label>
                         <div class="col-md-9 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                @Html.TextBoxFor(x => x.Fname, new { placeholder="First Name" ,@class="form-control"})
+                                @Html.TextBoxFor(x => x.Fname, new { placeholder = "First Name", @class = "form-control" })
                             </div>
+                            @Html.ValidationMessageFor(m => m.Fname)
                         </div>
                     </div>
-
                     <div class="form-group">
                         <label class="col-md-3 control-label">
                             Last Name *</label>
                         <div class="col-md-9 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                @Html.TextBoxFor(x => x.Lname, new { placeholder="Last Name" ,@class="form-control"})
+                                @Html.TextBoxFor(x => x.Lname, new { placeholder = "Last Name", @class = "form-control" })
                             </div>
+                            @Html.ValidationMessageFor(m => m.Lname)
                         </div>
                     </div>
                     <div class="form-group">
@@ -168,8 +172,9 @@
                         <div class="col-md-9 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                                @Html.TextBoxFor(x => x.Email, new { placeholder="Email" ,@class="form-control"})
+                                @Html.TextBoxFor(x => x.Email, new { placeholder = "Email", @class = "form-control" })
                             </div>
+                            @Html.ValidationMessageFor(m => m.Email)
                         </div>
                     </div>
                     <!-- Text area -->
@@ -179,13 +184,11 @@
                         <div class="col-md-9 inputGroupContainer">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                                 @Html.TextAreaFor(x => x.Description, new { placeholder = "Description", rows = "6", @class = "form-control" })
+                                @Html.TextAreaFor(x => x.Description, new { placeholder = "Description", rows = "6", @class = "form-control" })
                             </div>
                         </div>
                     </div>
-                    @*<div class="alert alert-success" role="alert" id="success_message">
-                        Success <i class="glyphicon glyphicon-thumbs-up"></i>Thanks for contacting us, we
-                        will get back to you shortly.</div>*@
+                   
                     <div class="form-group">
                         <label class="col-md-3 control-label">
                         </label>
@@ -196,7 +199,7 @@
                         </div>
                     </div>
                 </fieldset>
-}
+            }
         </div>
     </div>
 </div>
