@@ -28,7 +28,7 @@ namespace MyEBooks
         {
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
+                routeTemplate: "api/{controller}/{filterBy}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
 

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MyEBooks.Models;
+using MyEBooks.DataBaseHandler;
+using MyEBooks.WebApi;
 
 namespace MyEBooks.Controllers
 {
@@ -25,7 +27,7 @@ namespace MyEBooks.Controllers
         }
 
         [HttpPost]
-        public ActionResult Contact(ContactUs contacctUs)
+        public ActionResult Contact(Contact contact)
         {
             if (ModelState.IsValid)
             {
@@ -33,7 +35,8 @@ namespace MyEBooks.Controllers
             }
             else
             {
-                return View(contacctUs);
+                DBManager.SaveContact(contact);
+                return View(contact);
             }
         }
 
@@ -64,7 +67,9 @@ namespace MyEBooks.Controllers
 
         public ActionResult Sitemap()
         {
-            return View();
+            SiteMapData smd = new SiteMapData();
+            smd.LoadSiteMapData();
+            return View("sitemap", smd);
         }
     }
 }

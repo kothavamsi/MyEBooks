@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MyEBooks.PagerHandler.PagerSettingsHandler;
 using System;
+using MyEBooks.WebApi;
 
 namespace MyEBooks.Controllers
 {
@@ -22,6 +23,10 @@ namespace MyEBooks.Controllers
         public ActionResult Index(string keyword, int pageNo = 1)
         {
             var searchResult = GetBookSearchResult(keyword, pageNo);
+            if (searchResult.FoundResult)
+            {
+                new TagManager().PostPopularSearchTag(new PopularSearchTag().Create(keyword));
+            }
             return View("Result", searchResult);
         }
 

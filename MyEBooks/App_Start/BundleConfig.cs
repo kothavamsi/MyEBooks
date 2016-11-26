@@ -16,6 +16,14 @@ namespace MyEBooks
                 "~/Content/SiteCss/site.css",
                 "~/Content/bootstrap.min.css"));
 
+            bundles.Add(new ScriptBundle("~/bundles/tagCloudscripts").Include(
+                        "~/Scripts/TagCloudSquareJs/jquery-1.11.3.min.js",
+                        "~/Scripts/TagCloudSquareJs/jquery.tagcloud.js"));
+            bundles.Add(new StyleBundle("~/bundles/tagCloudstyles").Include(
+                "~/Content/TagCloudSquareCss/jquerysctipttop.css",
+                "~/Content/TagCloudSquareCss/Roboto.css"));
+
+
             //bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
             //            "~/Scripts/jquery-{version}.js"));
 

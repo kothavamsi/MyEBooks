@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.PanelTitle = "Popular Tags:";
+}
+@model MyEBooks.Models.PopularSearchData
+@Styles.Render("~/bundles/tagCloudstyles")
+@Scripts.Render("~/bundles/tagCloudscripts")
+<script type="text/javascript">
+
+    if (!String.format) {
+        String.format = function (format) {
+            var args = Array.prototype.slice.call(arguments, 1);
+            return format.replace(/{(\d+)}/g, function (match, number) {
+                return typeof args[number] != 'undefined'
+        ? args[number]
+        : match;
+            });
+        };
+    }
+
+    function LoadPopularTags(filterBy) {
+        var apiPath = String.format("/api/PopularSearchTags/{0}", filterBy);
+        $.getJSON(apiPath, function (data) {
+
+            $("#popularTagCloud").empty();
+
+            $.each(data, function (index, element) {
+                var url = String.format("<a href='search/{0}' rel='{1}'>{0}</a>", element.Keyword, element.Count);
+                $("#popularTagCloud").append(url);
+            });
+
+            $("#popularTagCloud a").tagcloud({
+                size: { start: 12, end: 36, unit: "px" },
+                color: { start: '#3498DB', end: '#46CFB0' }
+            });
+        });
+    }
+
+    $(function () {
+        $("#popularTagCloud a").tagcloud({
+            size: { start: 12, end: 36, unit: "px" },
+            color: { start: '#3498DB', end: '#46CFB0' }
+        });
+
+        $("#filterBtnSearchTagRecentActivity").on("click", function () {
+            console.log("filterBtnSearchTagRecentActivity");
+            LoadPopularTags("RecentActivity");
+        });
+
+        $("#filterBtnSearchTagRecentCount").on("click", function () {
+            console.log("filterBtnSearchTagRecentCount");
+            LoadPopularTags("Count");
+        });
+    });
+</script>
+<div class="panel panel-default">
+    <div class="panel-heading text-nowrap">
+        <h3 class="panel-title">
+            Popular Tags:</h3>
+        <div class="btn-group">
+            <button type="button" class="btn btn-info">
+                Filter By</button>
+            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <span class="caret"></span><span class="sr-only">Filter By</span>
+            </button>
+            <ul class="dropdown-menu">
+                <li id="filterBtnSearchTagRecentActivity"><a href="#">Recently Activity</a></li>
+                <li id="filterBtnSearchTagRecentCount"><a href="#">Hit Count</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div id="popularTagCloud">
+            @foreach (var tag in Model.PopularSearchTags)
+            {
+                @Html.ActionLink(@tag.TagName + " ", "index", "search", new { keyword = @tag.TagName }, new { rel = @tag.Weight });
+            }
+        </div>
+    </div>
+</div>

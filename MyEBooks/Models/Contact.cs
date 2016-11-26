@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MyEBooks.Models
 {
-    public class ContactUs
+    public class Contact
     {
         public int Id { get; set; }
         [Required(ErrorMessage = "Please enter First name")]

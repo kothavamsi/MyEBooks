@@ -166,13 +166,9 @@
     <Compile Include="BookRepository\FileSystem\Config\BooksLocationManagerSection.cs" />
     <Compile Include="BookRepository\FileSystem\BooksLocationSettingsHandler\BooksLocationSettings.cs" />
     <Compile Include="BookRepository\FileSystem\BooksLocationSettingsHandler\BooksLocationSettingsManager.cs" />
-    <Compile Include="Models\ContactUs.cs" />
-    <Compile Include="WebApi\Books.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Books.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="WebApi\BooksController.cs" />
+    <Compile Include="DataBaseHandler\DBManager.cs" />
+    <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\SiteMapData.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="LogHandler\Config\LogManagerSection.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -203,9 +199,14 @@
     <Compile Include="PagerHandler\PagerSettingsHandler\PagerSettings.cs" />
     <Compile Include="PagerHandler\PagerSettingsHandler\PagerSettingsManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebApi\Repository\IRepository.cs" />
-    <Compile Include="WebApi\Repository\Repository.cs" />
-    <Compile Include="WebApi\TagCloudController.cs" />
+    <Compile Include="WebApi\TagExtenstions.cs" />
+    <Compile Include="WebApi\Tags.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Tags.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="WebApi\PopularSearchTagsController.cs" />
+    <Compile Include="WebApi\TagManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -245,6 +246,7 @@
     <Content Include="Scripts\TagCloudRandomJs\jqcloud-1.0.4.min.js" />
     <Content Include="Scripts\TagCloudSquareJs\jquery-1.11.3.min.js" />
     <Content Include="Scripts\TagCloudSquareJs\jquery.tagcloud.js" />
+    <Content Include="Sql\Tags.sql" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -270,10 +272,10 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="WebApi\Books.edmx.sql" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Scripts\JqueryScriptsOnView\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -296,19 +298,12 @@
     <Content Include="Views\Shared\_HtmlHeadPartial.cshtml" />
     <Content Include="Views\Shared\_RecentActivityTickerPartial.cshtml" />
     <Content Include="Views\Shared\_BreakingNewsPartial.cshtml" />
-    <EntityDeploy Include="WebApi\Books.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Books.Designer.cs</LastGenOutput>
-    </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_AdsPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_TagCloudRandomPartial.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Shared\_TagCloudSquarePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Content\bootstrap-theme.css.map" />
@@ -323,6 +318,11 @@
     <None Include="Scripts\jquery-3.1.1.min.map" />
     <None Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Views\Home\ContactSuccess.cshtml" />
+    <EntityDeploy Include="WebApi\Tags.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Tags.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Views\Shared\_PopularSearchTagPartial.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -338,16 +338,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>51738</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44300/</IISUrl>
-          <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>
