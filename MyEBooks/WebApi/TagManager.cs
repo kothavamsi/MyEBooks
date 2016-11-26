@@ -5,6 +5,12 @@ using System.Web;
 
 namespace MyEBooks.WebApi
 {
+    public enum FILTER
+    {
+        recent = 1,
+        hit = 2
+    }
+
     public class TagManager
     {
         MyEbooksEntities dbContext;
@@ -15,23 +21,35 @@ namespace MyEBooks.WebApi
 
         public IEnumerable<PopularSearchTag> GetAllPopularSearchTags(string filterBy)
         {
-            return dbContext.PopularSearchTags;
-        }
-
-        public IEnumerable<PopularSearchTag> GetPopularSearchTagsBySearchHits(int totalItems)
-        {
             IEnumerable<PopularSearchTag> tags = new List<PopularSearchTag>();
-            var query = from pst in dbContext.PopularSearchTags orderby pst.Count ascending select pst;
-            return query.Take(totalItems);
+            if (filterBy == "recent")
+            {
+                tags = from pst in dbContext.PopularSearchTags orderby pst.LastSearchedOn descending select pst;
+            }
+            else
+            {
+                tags = from pst in dbContext.PopularSearchTags orderby pst.Count ascending select pst;
+            }
+            return tags;
         }
 
-        
-
-        public PopularSearchTag GetPopularSearchTag(string filterBy,int id)
+        public IEnumerable<PopularSearchTag> GetPopularSearchTagsByHits(int totalItems)
         {
-            var popularSearchTag = from pst in dbContext.PopularSearchTags where pst.Id == id select pst;
-            return popularSearchTag.FirstOrDefault();
+            IEnumerable<PopularSearchTag> tags = GetAllPopularSearchTags("hit");
+            return tags.Take(totalItems);
         }
+
+        public IEnumerable<PopularSearchTag> GetPopularSearchTagsByRecent(int totalItems)
+        {
+            IEnumerable<PopularSearchTag> tags = GetAllPopularSearchTags("recent");
+            return tags.Take(totalItems);
+        }
+        
+        //public PopularSearchTag GetPopularSearchTag(string filterBy, int id)
+        //{
+        //    var popularSearchTag = from pst in dbContext.PopularSearchTags where pst.Id == id select pst;
+        //    return popularSearchTag.FirstOrDefault();
+        //}
 
         public void PostPopularSearchTag(PopularSearchTag tag)
         {

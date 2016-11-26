@@ -60,11 +60,12 @@ namespace MyEBooks.Models
             PopularSearchData = new PopularSearchData();
             PopularAuthorData = new PopularAuthorData();
             PopularPublisherData = new PopularPublisherData();
+            LoadSiteMapData();
         }
 
         public void LoadSiteMapData()
         {
-            PopularSearchData.PopularSearchTags = MapDBPopularSearchTagToViewTagData(new TagManager().GetPopularSearchTagsBySearchHits(50));
+            PopularSearchData.PopularSearchTags = MapDBPopularSearchTagToViewTagData(new TagManager().GetPopularSearchTagsByRecent(50));
         }
 
         public IEnumerable<TagData> MapDBPopularSearchTagToViewTagData(IEnumerable<PopularSearchTag> dbTags)

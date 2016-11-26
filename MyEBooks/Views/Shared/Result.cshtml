@@ -1,7 +1,11 @@
-﻿@{
+﻿@model MyEBooks.Models.SearchResult
+@{
     ViewBag.Title = "Search Results";
+    int cols = 4;
+    int totalBookCount = Model.DisplayedBooks.Count;
+    int rows = (totalBookCount / cols) + (totalBookCount % cols > 0 ? 1 : 0);
+    int bookIndex = 0;
 }
-@model MyEBooks.Models.SearchResult
 @if (Model.FoundResult)
 {
     <div class="visible-lg-inline visible-md-inline">
@@ -16,30 +20,53 @@
     </div>
     
     
-    <div>
+@*<div>
         <span>PageSize: @Model.Pager.PageSize</span> <span>PagerDisplayLength: @Model.Pager.PagerDisplayLength</span>
         <span>TotalItems: @Model.Pager.TotalItems</span> <span>TotalPages: @Model.Pager.TotalPages</span>
-    </div>
+    </div>*@
     <div class="container-fluid">
-        @foreach (var book in @Model.DisplayedBooks)
+        @for (int row = 1; row <= rows && bookIndex < totalBookCount; row++)
+        {
+            <div class="row">
+                @for (int col = 1; col <= cols && bookIndex < totalBookCount; col++)
+                {
+                    var lg = (12 / cols);
+                    var md = ((12 / cols) * 2) > 12 ? 12 : ((12 / cols) * 2);
+                    var sm = 12;
+                    var xs = sm;
+                    
+                    string colLayout = string.Format("col-lg-{0} col-md-{1} col-sm-{2} col-xs-{3}", lg, md, sm, xs);
+                    <div class="@colLayout">
+                        <div class="panel panel-info">
+                            <div class="panel-heading text-nowrap">
+                                <h5 class="panel-title" style="overflow: hidden">@Model.DisplayedBooks[bookIndex].Title</h5>
+                            </div>
+                            <div class="panel-body">
+                                <img src="http://ecx.images-amazon.com/images/I/514%2BoWhnajL._SL200_.jpg" alt="phyton guide"
+                                    class="img-thumbnail img-responsive">
+                            </div>
+                        </div>
+                    </div>
+                    bookIndex++;
+                }
+            </div>
+        }
+        @*@foreach (var book in @Model.DisplayedBooks)
         {
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="panel panel-default">
+                    <div class="panel panel-info">
                         <div class="panel-heading text-nowrap">
-                            <h3 class="panel-title">@book.Title.Substring(0, 10)</h3>
+                            <p class="panel-title" style="overflow: hidden">@book.Title</p>
                         </div>
                         <div class="panel-body">
-                            <span>@book.SizeMB</span> <span>@book.PublishedDate</span> A jumbotron indicates
-                            a big box for calling extra attention to some special content or information.A jumbotron
-                            is displayed as a grey box with rounded corners. It also enlarges the font sizes
-                            of the text inside it.Tip: Inside a jumbotron you can put nearly any valid HTML,
-                            including other Bootstrap elements/classes.
+                            <img src="http://ecx.images-amazon.com/images/I/514%2BoWhnajL._SL200_.jpg" alt="phyton guide"
+                                class="img-thumbnail img-responsive">
                         </div>
                     </div>
                 </div>
             </div>
-        }
+        }*@
         <div class="container-fluid text-center">
             @Html.Partial("_PagerPartial", @Model.Pager)
         </div>

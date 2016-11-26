@@ -15,11 +15,11 @@ namespace MyEBooks.WebApi
             return new TagManager().GetAllPopularSearchTags(filterBy);
         }
 
-        // GET api/<controller>/5
-        public PopularSearchTag Get(string filterBy, int id)
-        {
-            return new TagManager().GetPopularSearchTag(filterBy,id);
-        }
+        //// GET api/<controller>/5
+        //public PopularSearchTag Get(string filterBy, int id)
+        //{
+        //    return new TagManager().GetPopularSearchTag(filterBy, id);
+        //}
 
         // POST api/<controller>
         public void Post([FromBody]PopularSearchTag tag)

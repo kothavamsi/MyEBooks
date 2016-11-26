@@ -9,10 +9,12 @@ using MyEBooks.WebApi;
 
 namespace MyEBooks.Controllers
 {
+
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
+
             return View();
         }
 
@@ -67,9 +69,7 @@ namespace MyEBooks.Controllers
 
         public ActionResult Sitemap()
         {
-            SiteMapData smd = new SiteMapData();
-            smd.LoadSiteMapData();
-            return View("sitemap", smd);
+            return View("sitemap", new SiteMapData());
         }
     }
 }

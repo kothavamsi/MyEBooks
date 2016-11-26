@@ -19,13 +19,14 @@
             </div>
         </div>*@
         <div class="row content">
-            @* <div class="col-sm-3">
-                @Html.Partial("_RecentActivityTickerPartial")
-            </div>*@
-            <div class="col-sm-7 text-left">
+             <div class="col-sm-1">
+                
+            </div>
+            <div class="col-sm-8 text-left">
                 <p>@RenderBody()</p>
             </div>
-            <div class="col-sm-2 sidenav">
+            <div class="col-sm-3 sidenav">
+                @Html.Partial("_PopularSearchTagPartial", new MyEBooks.Models.SiteMapData().PopularSearchData)
                 @Html.Partial("_AdsPartial")
             </div>
         </div>

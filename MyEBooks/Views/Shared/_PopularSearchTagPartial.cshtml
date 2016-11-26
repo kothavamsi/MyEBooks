@@ -20,11 +20,10 @@
     function LoadPopularTags(filterBy) {
         var apiPath = String.format("/api/PopularSearchTags/{0}", filterBy);
         $.getJSON(apiPath, function (data) {
-
             $("#popularTagCloud").empty();
 
             $.each(data, function (index, element) {
-                var url = String.format("<a href='search/{0}' rel='{1}'>{0}</a>", element.Keyword, element.Count);
+                var url = String.format("<a href='/search/{0}' rel='{1}'>{0} </a>", element.Keyword, element.Count);
                 $("#popularTagCloud").append(url);
             });
 
@@ -41,32 +40,30 @@
             color: { start: '#3498DB', end: '#46CFB0' }
         });
 
-        $("#filterBtnSearchTagRecentActivity").on("click", function () {
-            console.log("filterBtnSearchTagRecentActivity");
-            LoadPopularTags("RecentActivity");
-        });
-
-        $("#filterBtnSearchTagRecentCount").on("click", function () {
-            console.log("filterBtnSearchTagRecentCount");
-            LoadPopularTags("Count");
+        $("#filterBtnSearchTagRecentActivity,#filterBtnSearchTagRecentCount").on("click", function () {
+            LoadPopularTags($(this).attr('data-api'));
         });
     });
 </script>
-<div class="panel panel-default">
+<div class="panel panel-success">
     <div class="panel-heading text-nowrap">
-        <h3 class="panel-title">
-            Popular Tags:</h3>
-        <div class="btn-group">
-            <button type="button" class="btn btn-info">
-                Filter By</button>
-            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <span class="caret"></span><span class="sr-only">Filter By</span>
-            </button>
-            <ul class="dropdown-menu">
-                <li id="filterBtnSearchTagRecentActivity"><a href="#">Recently Activity</a></li>
-                <li id="filterBtnSearchTagRecentCount"><a href="#">Hit Count</a></li>
-            </ul>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-info">
+                            Popular Tags</button>
+                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <span class="glyphicon glyphicon-filter"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li id="filterBtnSearchTagRecentActivity" data-api="recent"><a href="#">Recently Searched</a></li>
+                            <li id="filterBtnSearchTagRecentCount" data-api="hit"><a href="#">Hit Count</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="panel-body">
