@@ -225,7 +225,6 @@
     <Content Include="Content\BreakingNewsTickerCss\ticker-caption-bg.png" />
     <Content Include="Content\RecentActivityTickerCss\Ra-ticker.css" />
     <Content Include="Content\SiteCss\site.css" />
-    <Content Include="Content\TagCloudRandomCss\jqcloud.css" />
     <Content Include="Content\TagCloudSquareCss\jquerysctipttop.css" />
     <Content Include="Content\TagCloudSquareCss\Roboto.css" />
     <Content Include="favicon.ico" />
@@ -251,7 +250,6 @@
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
     <Content Include="Scripts\RecentActivityTickerJs\Ra-ticker.js" />
-    <Content Include="Scripts\TagCloudRandomJs\jqcloud-1.0.4.min.js" />
     <Content Include="Scripts\TagCloudSquareJs\jquery-1.11.3.min.js" />
     <Content Include="Scripts\TagCloudSquareJs\jquery.tagcloud.js" />
     <Content Include="Sql\Tags.sql" />
@@ -309,9 +307,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_AdsPartial.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Shared\_TagCloudRandomPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Content\bootstrap-theme.css.map" />
