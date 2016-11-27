@@ -1,1 +1,9 @@
-﻿@Model
+﻿@model MyEBooks.Models.MonthlyData
+<h4>
+    Monthly :</h4>
+<ul>
+    @foreach (var treeItem in Model.MonthlyTreeItems)
+    {
+        <li>@Html.ActionLink(@treeItem.DisplayValue, "YearAndMonth", new { Year = @treeItem.Year, Month = @treeItem.Month })</li>
+    }
+</ul>

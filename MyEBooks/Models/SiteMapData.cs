@@ -55,11 +55,57 @@ namespace MyEBooks.Models
         }
     }
 
+    public class MonthlyTreeItem
+    {
+        public int Year { get; set; }
+        public int Month { get; set; }
+        public string DisplayValue { get; set; }
+        public MonthlyTreeItem()
+        {
+        }
+    }
+
     public class MonthlyData
     {
         public string Title { get; set; }
+        public IList<MonthlyTreeItem> MonthlyTreeItems { get; set; }
         public MonthlyData()
         {
+            MonthlyTreeItems = new List<MonthlyTreeItem>();
+            LoadMonthlyData();
+        }
+
+        public void LoadMonthlyData()
+        {
+            var MonthNames = new string[] { "", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+            int startMonth, startYear, endMonth, endYear;
+
+            if (SiteMapSettings.BooksByMonth.Relative.Enabled == true)
+            {
+                startMonth = SiteMapSettings.BooksByMonth.Relative.FromMonth;
+                startYear = SiteMapSettings.BooksByMonth.Relative.FromYear;
+            }
+            else
+            {
+                startMonth = SiteMapSettings.BooksByMonth.Fixed.FromMonth;
+                startYear = SiteMapSettings.BooksByMonth.Fixed.FromYear;
+            }
+
+            endMonth = DateTime.Now.Month;
+            endYear = DateTime.Now.Year;
+
+            DateTime dt = new DateTime(endYear, endMonth, 1);
+            while (!(dt.Month == startMonth && dt.Year == startYear))
+            {
+                MonthlyTreeItems.Add(
+                new MonthlyTreeItem()
+                {
+                    DisplayValue = string.Format("{0} {1} ({2})", MonthNames[dt.Month], dt.Year, 50),
+                    Month= dt.Month,
+                    Year = dt.Year
+                });
+                dt = dt.AddMonths(-1);
+            }
         }
     }
 
