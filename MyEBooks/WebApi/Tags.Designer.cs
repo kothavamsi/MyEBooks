@@ -100,18 +100,18 @@ namespace MyEBooks.WebApi
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<PopularSearchTag> PopularSearchTags
+        public ObjectSet<PopularTag> PopularTags
         {
             get
             {
-                if ((_PopularSearchTags == null))
+                if ((_PopularTags == null))
                 {
-                    _PopularSearchTags = base.CreateObjectSet<PopularSearchTag>("PopularSearchTags");
+                    _PopularTags = base.CreateObjectSet<PopularTag>("PopularTags");
                 }
-                return _PopularSearchTags;
+                return _PopularTags;
             }
         }
-        private ObjectSet<PopularSearchTag> _PopularSearchTags;
+        private ObjectSet<PopularTag> _PopularTags;
 
         #endregion
 
@@ -134,11 +134,11 @@ namespace MyEBooks.WebApi
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the PopularSearchTags EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the PopularTags EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToPopularSearchTags(PopularSearchTag popularSearchTag)
+        public void AddToPopularTags(PopularTag popularTag)
         {
-            base.AddObject("PopularSearchTags", popularSearchTag);
+            base.AddObject("PopularTags", popularTag);
         }
 
         #endregion
@@ -474,30 +474,30 @@ namespace MyEBooks.WebApi
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="MyEbooksModel", Name="PopularSearchTag")]
+    [EdmEntityTypeAttribute(NamespaceName="MyEbooksModel", Name="PopularTag")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class PopularSearchTag : EntityObject
+    public partial class PopularTag : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new PopularSearchTag object.
+        /// Create a new PopularTag object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="keyword">Initial value of the Keyword property.</param>
         /// <param name="count">Initial value of the Count property.</param>
         /// <param name="createdOn">Initial value of the CreatedOn property.</param>
         /// <param name="lastSearchedOn">Initial value of the LastSearchedOn property.</param>
-        public static PopularSearchTag CreatePopularSearchTag(global::System.Int32 id, global::System.String keyword, global::System.Int32 count, global::System.DateTime createdOn, global::System.DateTime lastSearchedOn)
+        public static PopularTag CreatePopularTag(global::System.Int32 id, global::System.String keyword, global::System.Int32 count, global::System.DateTime createdOn, global::System.DateTime lastSearchedOn)
         {
-            PopularSearchTag popularSearchTag = new PopularSearchTag();
-            popularSearchTag.Id = id;
-            popularSearchTag.Keyword = keyword;
-            popularSearchTag.Count = count;
-            popularSearchTag.CreatedOn = createdOn;
-            popularSearchTag.LastSearchedOn = lastSearchedOn;
-            return popularSearchTag;
+            PopularTag popularTag = new PopularTag();
+            popularTag.Id = id;
+            popularTag.Keyword = keyword;
+            popularTag.Count = count;
+            popularTag.CreatedOn = createdOn;
+            popularTag.LastSearchedOn = lastSearchedOn;
+            return popularTag;
         }
 
         #endregion

@@ -3,28 +3,28 @@ SET ANSI_PADDING OFF;
 USE [MyEbooks]
 GO
 
-/****** Object:  Table [dbo].[PopularSearchTags]    Script Date: 11/26/2016 17:34:33 ******/
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[PopularSearchTags]') AND type in (N'U'))
-DROP TABLE [dbo].[PopularSearchTags]
+/****** Object:  Table [dbo].[PopularTags]    Script Date: 11/26/2016 17:34:33 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[PopularTags]') AND type in (N'U'))
+DROP TABLE [dbo].[PopularTags]
 GO
 
 USE [MyEbooks]
 GO
 
-/****** Object:  Table [dbo].[PopularSearchTags]    Script Date: 11/26/2016 17:34:34 ******/
+/****** Object:  Table [dbo].[[PopularTags]]    Script Date: 11/26/2016 17:34:34 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[PopularSearchTags](
+CREATE TABLE [dbo].[PopularTags](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[Keyword] [varchar](50) NOT NULL,
 	[Count] [int] NOT NULL,
 	[CreatedOn] [datetime] NOT NULL,
 	[LastSearchedOn] [datetime] NOT NULL,
- CONSTRAINT [PK_PopularSearchTags] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_PopularTags] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]

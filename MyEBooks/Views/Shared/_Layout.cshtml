@@ -26,7 +26,7 @@
                 <p>@RenderBody()</p>
             </div>
             <div class="col-sm-3 sidenav">
-                @Html.Partial("_PopularSearchTagPartial", new MyEBooks.Models.SiteMapData().PopularSearchData)
+                @Html.Partial("_PopularTagsPartial", new MyEBooks.Models.SiteMapData().PopularTagData)
                 @Html.Partial("_AdsPartial")
             </div>
         </div>

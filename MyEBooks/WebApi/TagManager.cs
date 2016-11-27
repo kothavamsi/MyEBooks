@@ -19,138 +19,80 @@ namespace MyEBooks.WebApi
             dbContext = new MyEbooksEntities();
         }
 
-        public IEnumerable<PopularSearchTag> GetAllPopularSearchTags(string filterBy)
+        public IEnumerable<PopularTag> GetAllPopularTags(string filterBy, int totalItems)
         {
-            IEnumerable<PopularSearchTag> tags = new List<PopularSearchTag>();
+            IEnumerable<PopularTag> tags = new List<PopularTag>();
             if (filterBy == "recent")
             {
-                tags = from pst in dbContext.PopularSearchTags orderby pst.LastSearchedOn descending select pst;
+                tags = (from pst in dbContext.PopularTags orderby pst.LastSearchedOn descending select pst).Take(totalItems);
             }
             else
             {
-                tags = from pst in dbContext.PopularSearchTags orderby pst.Count ascending select pst;
+                tags = (from pst in dbContext.PopularTags orderby pst.Count ascending select pst).Take(totalItems); ;
             }
             return tags;
         }
 
-        public IEnumerable<PopularSearchTag> GetPopularSearchTagsByHits(int totalItems)
+        public IEnumerable<PopularTag> GetPopularTagsByHits(int totalItems)
         {
-            IEnumerable<PopularSearchTag> tags = GetAllPopularSearchTags("hit");
-            return tags.Take(totalItems);
+            IEnumerable<PopularTag> tags = GetAllPopularTags("hit", totalItems);
+            return tags;
         }
 
-        public IEnumerable<PopularSearchTag> GetPopularSearchTagsByRecent(int totalItems)
+        public IEnumerable<PopularTag> GetPopularTagsByRecent(int totalItems)
         {
-            IEnumerable<PopularSearchTag> tags = GetAllPopularSearchTags("recent");
-            return tags.Take(totalItems);
+            IEnumerable<PopularTag> tags = GetAllPopularTags("recent", totalItems);
+            return tags;
         }
-        
-        //public PopularSearchTag GetPopularSearchTag(string filterBy, int id)
-        //{
-        //    var popularSearchTag = from pst in dbContext.PopularSearchTags where pst.Id == id select pst;
-        //    return popularSearchTag.FirstOrDefault();
-        //}
 
-        public void PostPopularSearchTag(PopularSearchTag tag)
+        public void PostPopularTag(PopularTag tag)
         {
-            var popularSearchTag = GetPopularSearchTag(tag.Keyword);
-            if (popularSearchTag == null)
+            var popularTag = GetPopularTag(tag.Keyword);
+            if (popularTag == null)
             {
-                AddPopularSearchTag(tag);
+                AddPopularTag(tag);
             }
             else
             {
-                popularSearchTag.Count += 1;
-                popularSearchTag.LastSearchedOn = DateTime.Now;
-                UpdatePopularSearchTag(popularSearchTag.Id, popularSearchTag);
+                popularTag.Count += 1;
+                popularTag.LastSearchedOn = DateTime.Now;
+                UpdatePopularTag(popularTag.Id, popularTag);
             }
         }
 
-        public void PutPopularSearchTag(int id, PopularSearchTag tag)
+        public void PutPopularTag(int id, PopularTag tag)
         {
-            UpdatePopularSearchTag(id, tag);
+            UpdatePopularTag(id, tag);
         }
 
-        public void DeletePopularSearchTag(PopularSearchTag tag)
+        public void DeletePopularTag(PopularTag tag)
         {
-            var popularSearchTag = dbContext.PopularSearchTags.Where(pst => pst.Id == tag.Id).Select(pst => pst).FirstOrDefault();
-            dbContext.DeleteObject(popularSearchTag);
+            var popularTag = dbContext.PopularTags.Where(pst => pst.Id == tag.Id).Select(pst => pst).FirstOrDefault();
+            dbContext.DeleteObject(popularTag);
             dbContext.SaveChanges();
         }
 
-        private PopularSearchTag GetPopularSearchTag(string keyword)
+        private PopularTag GetPopularTag(string keyword)
         {
-            var popularSearchTag = from pst in dbContext.PopularSearchTags where pst.Keyword == keyword select pst;
-            return popularSearchTag.FirstOrDefault();
+            var popularTag = from pst in dbContext.PopularTags where pst.Keyword == keyword select pst;
+            return popularTag.FirstOrDefault();
         }
 
-        private void AddPopularSearchTag(PopularSearchTag tag)
+        private void AddPopularTag(PopularTag tag)
         {
-            dbContext.AddToPopularSearchTags(tag);
+            dbContext.AddToPopularTags(tag);
             dbContext.SaveChanges();
         }
 
-        private void UpdatePopularSearchTag(int id, PopularSearchTag tag)
+        private void UpdatePopularTag(int id, PopularTag tag)
         {
-            var popularSearchTag = dbContext.PopularSearchTags.Where(pst => pst.Id == id).Select(pst => pst).FirstOrDefault();
-            popularSearchTag.Id = tag.Id;
-            popularSearchTag.Keyword = tag.Keyword;
-            popularSearchTag.LastSearchedOn = DateTime.Now;
-            popularSearchTag.Count = tag.Count;
-            popularSearchTag.CreatedOn = DateTime.Now;
+            var popularTag = dbContext.PopularTags.Where(pst => pst.Id == id).Select(pst => pst).FirstOrDefault();
+            popularTag.Id = tag.Id;
+            popularTag.Keyword = tag.Keyword;
+            popularTag.LastSearchedOn = DateTime.Now;
+            popularTag.Count = tag.Count;
+            popularTag.CreatedOn = DateTime.Now;
             dbContext.SaveChanges();
         }
-
-        //internal IEnumerable<PopularPublisherTag> GetAllPopularPublisherTags()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //internal PopularPublisherTag GetPopularPublisherTag(int id)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //internal void AddPopularPublisherTag(PopularPublisherTag tag)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //internal void UpdatePopularPublisherTag(int id, PopularPublisherTag tag)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //internal void DeletePopularPublisherTag(PopularPublisherTag tag)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //internal IEnumerable<PopularAuthorTag> GetAllPopularAuthorTags()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //internal PopularAuthorTag GetPopularAuthorTag(int id)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //internal void AddPopularAuthorTag(PopularAuthorTag tag)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //internal void UpdatePopularAuthorTag(int id, PopularAuthorTag tag)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //internal void DeletePopularAuthorTag(PopularAuthorTag tag)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-
     }
 }

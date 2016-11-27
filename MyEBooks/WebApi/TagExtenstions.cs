@@ -7,16 +7,16 @@ namespace MyEBooks.WebApi
 {
     public static class TagExtenstions
     {
-        public static PopularSearchTag Create(this PopularSearchTag tag, string keyWord)
+        public static PopularTag Create(this PopularTag tag, string keyWord)
         {
-            PopularSearchTag pst = new PopularSearchTag()
+            PopularTag pt = new PopularTag()
             {
                 Count = 1,
                 CreatedOn = DateTime.Now,
                 LastSearchedOn = DateTime.Now,
                 Keyword = keyWord
             };
-            return pst;
+            return pt;
         }
     }
 }

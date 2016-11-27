@@ -22,14 +22,14 @@
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    Monthly:
+                    @Html.Partial("_MonthlyPartial", Model.MonthlyData)
                 </div>
             </div>
         </div>
         <div class="col-lg-9">
             <div class="row">
                 <div class="col-lg-12">
-                    @Html.Partial("_PopularSearchTagPartial", Model.PopularSearchData)
+                    @Html.Partial("_PopularTagsPartial", Model.PopularTagData)
                 </div>
             </div>
             <div class="row">

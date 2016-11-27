@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using MyEBooks.WebApi;
 using MyEBooks.Models;
+using MyEBooks.SiteMap;
 
 namespace MyEBooks.Models
 {
@@ -18,25 +19,27 @@ namespace MyEBooks.Models
         }
     }
 
-    public class PopularSearchData
+    public class PopularTagData
     {
         public string Title { get; set; }
-        public IEnumerable<TagData> PopularSearchTags { get; set; }
-        public PopularSearchData()
+        public IEnumerable<TagData> PopularTags { get; set; }
+        public int TotalTagsToGet { get; set; }
+        public PopularTagData()
         {
-            PopularSearchTags = new List<TagData>();
+            PopularTags = new List<TagData>();
+            TotalTagsToGet = SiteMapSettings.PopularTags.TotalItems;
         }
-
-        
     }
 
     public class PopularAuthorData
     {
         public string Title { get; set; }
         public IEnumerable<TagData> PopularAuthorTags { get; set; }
+        public int TotalTagsToGet { get; set; }
         public PopularAuthorData()
         {
             PopularAuthorTags = new List<TagData>();
+            TotalTagsToGet = SiteMapSettings.PopularAuthorTags.TotalItems;
         }
     }
 
@@ -44,31 +47,43 @@ namespace MyEBooks.Models
     {
         public string Title { get; set; }
         public IEnumerable<TagData> PopularPublisherTags { get; set; }
+        public int TotalTagsToGet { get; set; }
         public PopularPublisherData()
         {
             PopularPublisherTags = new List<TagData>();
+            TotalTagsToGet = SiteMapSettings.PopularPublisherTags.TotalItems;
+        }
+    }
+
+    public class MonthlyData
+    {
+        public string Title { get; set; }
+        public MonthlyData()
+        {
         }
     }
 
     public class SiteMapData
     {
-        public PopularSearchData PopularSearchData;
+        public PopularTagData PopularTagData;
         public PopularAuthorData PopularAuthorData;
         public PopularPublisherData PopularPublisherData;
+        public MonthlyData MonthlyData;
         public SiteMapData()
         {
-            PopularSearchData = new PopularSearchData();
+            PopularTagData = new PopularTagData();
             PopularAuthorData = new PopularAuthorData();
             PopularPublisherData = new PopularPublisherData();
+            MonthlyData = new MonthlyData();
             LoadSiteMapData();
         }
 
         public void LoadSiteMapData()
         {
-            PopularSearchData.PopularSearchTags = MapDBPopularSearchTagToViewTagData(new TagManager().GetPopularSearchTagsByRecent(50));
+            PopularTagData.PopularTags = MapDBPopularSearchTagToViewTagData(new TagManager().GetPopularTagsByRecent(50));
         }
 
-        public IEnumerable<TagData> MapDBPopularSearchTagToViewTagData(IEnumerable<PopularSearchTag> dbTags)
+        public IEnumerable<TagData> MapDBPopularSearchTagToViewTagData(IEnumerable<PopularTag> dbTags)
         {
             var tags = from dbTag in dbTags
                        select new TagData()
@@ -79,5 +94,6 @@ namespace MyEBooks.Models
                        };
             return tags;
         }
+
     }
 }

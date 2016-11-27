@@ -1,7 +1,7 @@
 ﻿@{
     ViewBag.PanelTitle = "Popular Tags:";
 }
-@model MyEBooks.Models.PopularSearchData
+@model MyEBooks.Models.PopularTagData
 @Styles.Render("~/bundles/tagCloudstyles")
 @Scripts.Render("~/bundles/tagCloudscripts")
 <script type="text/javascript">
@@ -10,15 +10,13 @@
         String.format = function (format) {
             var args = Array.prototype.slice.call(arguments, 1);
             return format.replace(/{(\d+)}/g, function (match, number) {
-                return typeof args[number] != 'undefined'
-        ? args[number]
-        : match;
+                return typeof args[number] != 'undefined' ? args[number] : match;
             });
         };
     }
 
-    function LoadPopularTags(filterBy) {
-        var apiPath = String.format("/api/PopularSearchTags/{0}", filterBy);
+    function LoadPopularTags(filterBy, totalItemsToGet) {
+        var apiPath = String.format("/api/PopularTags/{0}/{1}", filterBy, totalItemsToGet);
         $.getJSON(apiPath, function (data) {
             $("#popularTagCloud").empty();
 
@@ -40,8 +38,8 @@
             color: { start: '#3498DB', end: '#46CFB0' }
         });
 
-        $("#filterBtnSearchTagRecentActivity,#filterBtnSearchTagRecentCount").on("click", function () {
-            LoadPopularTags($(this).attr('data-api'));
+        $("#filterBtnPopularTagRecentActivity,#filterBtnPopularTagRecentCount").on("click", function () {
+            LoadPopularTags($(this).attr('data-api'), $(this).attr('data-items'));
         });
     });
 </script>
@@ -58,8 +56,10 @@
                             <span class="glyphicon glyphicon-filter"></span>
                         </button>
                         <ul class="dropdown-menu">
-                            <li id="filterBtnSearchTagRecentActivity" data-api="recent"><a href="#">Recently Searched</a></li>
-                            <li id="filterBtnSearchTagRecentCount" data-api="hit"><a href="#">Hit Count</a></li>
+                            <li id="filterBtnPopularTagRecentActivity" data-api="recent" data-items="@Model.TotalTagsToGet">
+                                <a href="#">Recent</a></li>
+                            <li id="filterBtnPopularTagRecentCount" data-api="hit" data-items="@Model.TotalTagsToGet">
+                                <a href="#">Hit Count</a></li>
                         </ul>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
     </div>
     <div class="panel-body">
         <div id="popularTagCloud">
-            @foreach (var tag in Model.PopularSearchTags)
+            @foreach (var tag in Model.PopularTags)
             {
                 @Html.ActionLink(@tag.TagName + " ", "index", "search", new { keyword = @tag.TagName }, new { rel = @tag.Weight });
             }
