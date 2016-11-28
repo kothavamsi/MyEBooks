@@ -10,14 +10,8 @@ namespace MyEBooks.Controllers
 {
     public class CategoryController : Controller
     {
-        [HttpPost]
-        public ActionResult Index(string categoryName)
-        {
-            return Redirect(string.Format("/{0}/{1}", "category", categoryName));
-        }
 
-        [HttpGet]
-        public ActionResult Index(string categoryName, int pageNo = 1)
+        public ActionResult Index(string categoryName, string sort="post-date", int pageNo = 1)
         {
             var searchResult = GetBookCategoryResult(categoryName, pageNo);
             return View("Result", searchResult);
