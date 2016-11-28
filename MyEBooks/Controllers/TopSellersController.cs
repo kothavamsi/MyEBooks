@@ -7,7 +7,7 @@ using MyEBooks.Models;
 
 namespace MyEBooks.Controllers
 {
-    public class TopSellersController : Controller
+    public class TopSellersController : MyBaseController
     {
         //
         // GET: /TopSellers/
@@ -15,7 +15,7 @@ namespace MyEBooks.Controllers
         public ActionResult Index()
         {
             var topSellers = new TopSellers();
-            topSellers.NavBar.RenderSortBy = false;
+            topSellers.NavigationBar.RenderSortByListMenu = false;
             return View("Index", topSellers);
         }
 

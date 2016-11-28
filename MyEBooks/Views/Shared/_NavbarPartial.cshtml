@@ -1,4 +1,4 @@
-﻿@model MyEBooks.Models.NavBar
+﻿@model MyEBooks.Models.NavigationBar
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid ">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -15,29 +15,32 @@
             <ul class="nav navbar-nav">
                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                     aria-haspopup="true" aria-expanded="false">Books <span class="caret"></span></a>
-                    <ul class="dropdown-menu scrollable-menu" style="height:auto">
-                        @foreach (var categoryName in Model.Categories.Keys)
+                    <ul class="dropdown-menu scrollable-menu" style="height: auto">
+                        @foreach (var categoryListItem in Model.Categories)
                         {
-                            <li>@Html.ActionLink(categoryName, categoryName.ToLower(), "category")</li>
+                            <li>@Html.ActionLink(categoryListItem.Text, categoryListItem.BackEndPurposeText, "category")</li>
                         }
-                        @*<li role="separator" class="divider"></li>*@
                     </ul>
                 </li>
                 <li>@Html.ActionLink("Top Sellers", "Index", "TopSellers")</li>
                 <li>@Html.ActionLink("Most Reviews", "Index", "MostReviews")</li>
                 <li>@Html.ActionLink("New Release", "Index", "NewRelease")</li>
                 <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                @if (Model.RenderSortBy)
+                @if (Model.RenderSortByListMenu)
                 {
                     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                         aria-haspopup="true" aria-expanded="false">Sort By <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("PostDate(Default)", "Index", new { sort = "post-date" })</li>
+                            @foreach (var sortByListItem in Model.SortByListItems)
+                            {
+                                <li>@Html.ActionLink(sortByListItem.Text, "Index", new { sort = @sortByListItem.SeoFriendlyText })</li>
+                            }
+                           @* <li>@Html.ActionLink("PostDate(Default)", "Index", new { sort = "post-date" })</li>
                             <li>@Html.ActionLink("Upload Date", "Index", new { sort = "upload" })</li>
                             <li>@Html.ActionLink("Publication Date", "Index", new { sort = "daterank" })</li>
                             <li>@Html.ActionLink("Most Reviews", "Index", new { sort = "review-count-rank" })</li>
                             <li>@Html.ActionLink("Avg. customer Review", "Index", new { sort = "average-review-rank" })</li>
-                            <li>@Html.ActionLink("Most Downloads", "Index", new { sort = "download-count-rank" })</li>
+                            <li>@Html.ActionLink("Most Downloads", "Index", new { sort = "download-count-rank" })</li>*@
                         </ul>
                     </li>
                 }

@@ -9,25 +9,23 @@ using MyEBooks.WebApi;
 
 namespace MyEBooks.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : MyBaseController
     {
         public ActionResult Index()
         {
-            var viewModelBase = new ViewModelBase();
-            return View("Index", viewModelBase);
+            return View("Index", this.ViewModelBaseObj);
         }
 
         public ActionResult About()
         {
-            var viewModelBase = new ViewModelBase();
-            viewModelBase.NavBar.RenderSortBy = false;
-            return View("About", viewModelBase);
+            this.ViewModelBaseObj.NavigationBar.RenderSortByListMenu = false;
+            return View("About", this.ViewModelBaseObj);
         }
 
         public ActionResult Contact()
         {
             var contact = new Contact();
-            contact.NavBar.RenderSortBy = false;
+            contact.NavigationBar.RenderSortByListMenu = false;
             return View("Contact", contact);
         }
 
@@ -36,57 +34,51 @@ namespace MyEBooks.Controllers
         {
             if (ModelState.IsValid)
             {
-                var viewModelBase = new ViewModelBase();
-                viewModelBase.NavBar.RenderSortBy = false;
-                return View("ContactSuccess", viewModelBase);
+                this.ViewModelBaseObj.NavigationBar.RenderSortByListMenu = false;
+                return View("ContactSuccess", this.ViewModelBaseObj);
             }
             else
             {
                 DBManager.SaveContact(contact);
-                contact.NavBar.RenderSortBy = false;
+                contact.NavigationBar.RenderSortByListMenu = false;
                 return View("Contact", contact);
             }
         }
 
         public ActionResult PrivacyPolicy()
         {
-            var viewModelBase = new ViewModelBase();
-            viewModelBase.NavBar.RenderSortBy = false;
-            return View("PrivacyPolicy", viewModelBase);
+            this.ViewModelBaseObj.NavigationBar.RenderSortByListMenu = false;
+            return View("PrivacyPolicy", this.ViewModelBaseObj);
         }
 
         public ActionResult FAQ()
         {
-            var viewModelBase = new ViewModelBase();
-            viewModelBase.NavBar.RenderSortBy = false;
-            return View("FAQ", viewModelBase);
+            this.ViewModelBaseObj.NavigationBar.RenderSortByListMenu = false;
+            return View("FAQ", this.ViewModelBaseObj);
         }
 
         public ActionResult RSS()
         {
-            var viewModelBase = new ViewModelBase();
-            viewModelBase.NavBar.RenderSortBy = false;
-            return View("RSS", viewModelBase);
+            this.ViewModelBaseObj.NavigationBar.RenderSortByListMenu = false;
+            return View("RSS", this.ViewModelBaseObj);
         }
 
         public ActionResult DMCA()
         {
-            var viewModelBase = new ViewModelBase();
-            viewModelBase.NavBar.RenderSortBy = false;
-            return View("DMCA", viewModelBase);
+            this.ViewModelBaseObj.NavigationBar.RenderSortByListMenu = false;
+            return View("DMCA", this.ViewModelBaseObj);
         }
 
         public ActionResult Donate()
         {
-            var viewModelBase = new ViewModelBase();
-            viewModelBase.NavBar.RenderSortBy = false;
-            return View("Donate", viewModelBase);
+            this.ViewModelBaseObj.NavigationBar.RenderSortByListMenu = false;
+            return View("Donate", this.ViewModelBaseObj);
         }
 
         public ActionResult Sitemap()
         {
             var siteMapData = new SiteMapData();
-            siteMapData.NavBar.RenderSortBy = false;
+            siteMapData.NavigationBar.RenderSortByListMenu = false;
             return View("Sitemap", siteMapData);
         }
     }

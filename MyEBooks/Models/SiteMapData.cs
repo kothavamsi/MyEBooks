@@ -25,6 +25,7 @@ namespace MyEBooks.Models
         public string Title { get; set; }
         public IEnumerable<TagData> PopularTags { get; set; }
         public int TotalTagsToGet { get; set; }
+
         public PopularTagData()
         {
             PopularTags = new List<TagData>();
@@ -113,10 +114,11 @@ namespace MyEBooks.Models
     {
         public static string[] MonthNames = new string[] { "", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
 
-        public PopularTagData PopularTagData;
+        new public PopularTagData PopularTagData;
         public PopularAuthorData PopularAuthorData;
         public PopularPublisherData PopularPublisherData;
         public MonthlyData MonthlyData;
+
         public SiteMapData()
         {
             PopularTagData = new PopularTagData();

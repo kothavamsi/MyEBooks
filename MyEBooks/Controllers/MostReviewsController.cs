@@ -7,7 +7,7 @@ using MyEBooks.Models;
 
 namespace MyEBooks.Controllers
 {
-    public class MostReviewsController : Controller
+    public class MostReviewsController : MyBaseController
     {
         //
         // GET: /MostReviews/
@@ -15,7 +15,7 @@ namespace MyEBooks.Controllers
         public ActionResult Index()
         {
             var mostReviews = new MostReviews();
-            mostReviews.NavBar.RenderSortBy = false;
+            mostReviews.NavigationBar.RenderSortByListMenu = false;
             return View("Index", mostReviews);
         }
 

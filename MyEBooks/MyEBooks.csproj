@@ -171,9 +171,17 @@
     <Compile Include="BookRepository\FileSystem\BooksLocationSettingsHandler\BooksLocationSettings.cs" />
     <Compile Include="BookRepository\FileSystem\BooksLocationSettingsHandler\BooksLocationSettingsManager.cs" />
     <Compile Include="Controllers\MostReviewsController.cs" />
+    <Compile Include="Controllers\MyBaseController.cs" />
     <Compile Include="Controllers\NewReleaseController.cs" />
     <Compile Include="Controllers\TopSellersController.cs" />
     <Compile Include="Controllers\YearAndMonthController.cs" />
+    <Compile Include="Core\Helper.cs" />
+    <Compile Include="Models\ProductListViewResult.cs" />
+    <Compile Include="Models\IProduct.cs" />
+    <Compile Include="Core\RequestCriteria.cs" />
+    <Compile Include="Core\Response.cs" />
+    <Compile Include="Core\SortByListItem.cs" />
+    <Compile Include="Core\CategoryListItem.cs" />
     <Compile Include="DataBaseHandler\DBManager.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\MostReviews.cs" />
@@ -186,8 +194,7 @@
     <Compile Include="BookRepository\DataBase\DatabaseRepository.cs" />
     <Compile Include="BookRepository\FileSystem\FileSystemRepository.cs" />
     <Compile Include="BookRepository\FileSystem\FileSystemRepositorySettings.cs" />
-    <Compile Include="BookRepository\IBookRepository.cs" />
-    <Compile Include="BookRepository\Web\WebRepository.cs" />
+    <Compile Include="BookRepository\IRepository.cs" />
     <Compile Include="LogHandler\HtmlLog\HtmlLogger.cs" />
     <Compile Include="LogHandler\ILogger.cs" />
     <Compile Include="LogHandler\LogEntry.cs" />
@@ -204,7 +211,6 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Pager.cs" />
-    <Compile Include="Models\SearchResult.cs" />
     <Compile Include="Models\TopSellers.cs" />
     <Compile Include="Models\ViewModelBase.cs" />
     <Compile Include="PagerHandler\Config\PagerManagerSection.cs" />

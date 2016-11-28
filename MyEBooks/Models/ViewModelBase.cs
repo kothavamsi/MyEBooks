@@ -3,40 +3,41 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using MyEBooks.BookRepository.FileSystem.BooksLocationSettingsHandler;
+using MyEBooks.Core;
 
 namespace MyEBooks.Models
 {
-    public class NavBar
-    {
-        public bool RenderSortBy { get; set; }
-        public Dictionary<string, string> Categories { get; set; }
-        
-        public NavBar()
-        {
-            RenderSortBy = true;
-            LoadData();
-        }
-        
-        public void LoadData()
-        {
-            Categories = BooksLocationSettings.categories;
-        }
-    }
-
     public class ViewModelBase
     {
         public PopularTagData PopularTagData;
-        public NavBar NavBar;
+        public NavigationBar NavigationBar;
 
         public ViewModelBase()
         {
-            NavBar = new NavBar();
-            LoadData();
         }
 
-        public void LoadData()
+        IRepository _repository;
+        public ViewModelBase(IRepository repository):base()
         {
+            _repository = repository;
+            NavigationBar = new NavigationBar(_repository);
             PopularTagData = new PopularTagData();
+        }
+    }
+
+    public class NavigationBar
+    {
+        public bool RenderSortByListMenu { get; set; }
+        public IList<CategoryListItem> Categories { get; set; }
+        public IList<SortByListItem> SortByListItems { get; set; }
+        
+        IRepository _repository;
+        public NavigationBar(IRepository repository)
+        {
+            _repository = repository;
+            RenderSortByListMenu = true;
+            Categories = _repository.GetCategoryListItems();
+            SortByListItems = _repository.GetSortByListItems();
         }
     }
 }

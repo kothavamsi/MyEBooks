@@ -10,7 +10,7 @@ using MyEBooks.BookRepository.FileSystem.BooksLocationSettingsHandler;
 
 namespace MyEBooks.Core
 {
-    public class FileSystemRepository : IBookRepository
+    public class FileSystemRepository : IRepository
     {
         public IList<Book> GetBooksByKeyword(string keyword)
         {
@@ -92,6 +92,23 @@ namespace MyEBooks.Core
             List<Book> foundBooks = new List<Book>();
             foundBooks = FindBooks(string.Format("{0}", year));
             return foundBooks;
+        }
+
+
+        public IList<CategoryListItem> GetCategoryListItems()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<SortByListItem> GetSortByListItems()
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public Response GetProducts(RequestCriteria requestCriteria)
+        {
+            throw new NotImplementedException();
         }
     }
 }

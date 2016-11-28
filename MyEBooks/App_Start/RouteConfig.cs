@@ -27,7 +27,7 @@ namespace MyEBooks
 
             routes.MapRoute(
                 name: "CategoryPage",
-                url: "category/{categoryName}/page/{pageNo}",
+                url: "category/{seoFriendlyCategoryName}/page/{pageNo}",
                 defaults: new { controller = "Category", action = "Index" }
             );
 

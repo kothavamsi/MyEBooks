@@ -7,15 +7,12 @@ using MyEBooks.Models;
 
 namespace MyEBooks.Controllers
 {
-    public class NewReleaseController : Controller
+    public class NewReleaseController : MyBaseController
     {
-        //
-        // GET: /NewRelease/
-
         public ActionResult Index()
         {
             var newRelease = new NewRelease();
-            newRelease.NavBar.RenderSortBy = false;
+            newRelease.NavigationBar.RenderSortByListMenu = false;
             return View("Index", newRelease);
         }
 

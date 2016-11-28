@@ -6,8 +6,12 @@ using MyEBooks.PagerHandler.PagerSettingsHandler;
 
 namespace MyEBooks.Models
 {
+
     public class Pager
     {
+        public static int DEFAULT_PAGER_DISPLAY_LENGTH = 5;
+        public static int DEFAULT_PAGE_SIZE = 12;
+
         public bool IsRenderable { get; set; }
         public int PageSize { get; set; }
         public int TotalItems { get; set; }
@@ -21,13 +25,14 @@ namespace MyEBooks.Models
         public bool IsFirstEnabled { get; set; }
         public bool IsLastEnabled { get; set; }
 
-        public Pager()
+        public Pager(int totalItems, int pageNo)
         {
-            PagerDisplayLength = PagerSettings.PagerDisplayLength == 0 ? 5 : PagerSettings.PagerDisplayLength;
-            PageSize = PagerSettings.PageSize == 0 ? 10 : PagerSettings.PageSize;
+            PagerDisplayLength = PagerSettings.PagerDisplayLength == 0 ? DEFAULT_PAGER_DISPLAY_LENGTH : PagerSettings.PagerDisplayLength;
+            PageSize = PagerSettings.PageSize == 0 ? DEFAULT_PAGE_SIZE : PagerSettings.PageSize;
             IsNextEnabled = false;
             IsPreviousEnabled = false;
             IsRenderable = false;
+            ConstructPager(totalItems, pageNo);
         }
 
         public int GetPageCount(int totalItems)
@@ -35,7 +40,7 @@ namespace MyEBooks.Models
             return (totalItems / PageSize) + ((totalItems % PageSize) > 0 ? 1 : 0);
         }
 
-        public Pager GetPager(int totalItems, int pageNo)
+        private void ConstructPager(int totalItems, int pageNo)
         {
             CurrentIndex = pageNo;
             TotalItems = totalItems;
@@ -119,9 +124,6 @@ namespace MyEBooks.Models
             {
                 IsLastEnabled = true;
             }
-
-
-            return this;
         }
 
         private bool IsPageNumberCenter(int pageNo)
@@ -160,7 +162,5 @@ namespace MyEBooks.Models
             else
                 return false;
         }
-
-        
     }
 }

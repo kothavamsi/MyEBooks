@@ -9,7 +9,7 @@ namespace MyEBooks.Core
 
     public class BookManager
     {
-        public IBookRepository repository;
+        public IRepository repository;
         
         public BookManager()
         {
@@ -17,7 +17,7 @@ namespace MyEBooks.Core
             this.repository = new FileSystemRepository();
         }
 
-        public BookManager(IBookRepository repository)
+        public BookManager(IRepository repository)
         {
             this.repository = repository;
         }
