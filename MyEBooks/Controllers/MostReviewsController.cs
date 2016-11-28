@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MyEBooks.Models;
 
 namespace MyEBooks.Controllers
 {
@@ -13,7 +14,9 @@ namespace MyEBooks.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            var mostReviews = new MostReviews();
+            mostReviews.NavBar.RenderSortBy = false;
+            return View("Index", mostReviews);
         }
 
     }

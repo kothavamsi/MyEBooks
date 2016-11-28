@@ -29,8 +29,8 @@
                     </ul>
                 </li>
                 <li>@Html.ActionLink("Top Sellers", "Index","TopSellers")</li>
-                <li><a href="#">Most Reviews</a></li>
-                <li><a href="#">New Release</a></li>
+                <li>@Html.ActionLink("Most Reviews", "Index","MostReviews")</li>
+                <li>@Html.ActionLink("New Release", "Index","NewRelease")</li>
                 <li>@Html.ActionLink("Contact", "Contact","Home")</li>
                 @if (Model.RenderSortBy)
                 {
