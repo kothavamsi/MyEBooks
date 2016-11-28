@@ -7,6 +7,7 @@ using MyEBooks.Core;
 
 namespace MyEBooks.Models
 {
+    // This is StronglyTyped ViewModel For Layout
     public class ViewModelBase
     {
         public PopularTagData PopularTagData;
@@ -14,14 +15,16 @@ namespace MyEBooks.Models
 
         public ViewModelBase()
         {
+            PopularTagData = new PopularTagData();
         }
 
+        // Dependency Injection
         IRepository _repository;
-        public ViewModelBase(IRepository repository):base()
+        public ViewModelBase(IRepository repository)
+            : base()
         {
             _repository = repository;
             NavigationBar = new NavigationBar(_repository);
-            PopularTagData = new PopularTagData();
         }
     }
 
@@ -30,7 +33,8 @@ namespace MyEBooks.Models
         public bool RenderSortByListMenu { get; set; }
         public IList<CategoryListItem> Categories { get; set; }
         public IList<SortByListItem> SortByListItems { get; set; }
-        
+
+        // Dependency Injection
         IRepository _repository;
         public NavigationBar(IRepository repository)
         {

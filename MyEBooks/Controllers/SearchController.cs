@@ -24,14 +24,15 @@ namespace MyEBooks.Controllers
             RequestCriteria requestCriteria = new RequestCriteria()
             {
                 RequestMode = RequestMode.SearchKeyWord,
-                SeoFriendlyCategoryName = keyword,
+                SearchKeyWord = keyword,
                 SortMode = SortMode.None,
                 PageNo = pageNo
             };
 
             Response response = _repository.GetProducts(requestCriteria);
 
-            var productListViewResult = Helper.GetProductListViewResult(requestCriteria, response);
+            // Dependency Injection
+            var productListViewResult = Helper.GetProductListViewResult(requestCriteria, response, _repository);
             string headerMessage = string.Format("Searched - {0} (Found {1} Books)", requestCriteria.SearchKeyWord, response.ProductCount);
             productListViewResult.Header = new ProductListViewResultHeader()
             {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using MyEBooks.Core;
 
 namespace MyEBooks.Models
 {
@@ -13,7 +14,9 @@ namespace MyEBooks.Models
         public int ProductCount { get; set; }
         public Pager Pager { get; set; }
 
-        public ProductListViewResult()
+        // Dependency Injection
+        public ProductListViewResult(IRepository repository)
+            : base(repository)
         {
             ViewProducts = new List<IProduct>();
             FoundResult = false;

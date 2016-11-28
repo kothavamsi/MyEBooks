@@ -22,7 +22,8 @@ namespace MyEBooks.Controllers
 
             Response response = _repository.GetProducts(requestCriteria);
 
-            var productListViewResult = Helper.GetProductListViewResult(requestCriteria, response);
+            // Dependency Injection
+            var productListViewResult = Helper.GetProductListViewResult(requestCriteria, response,_repository);
             string headerMessage = string.Format("Found {0} Books Under {1} Category", response.ProductCount, requestCriteria.GetUserFriendlyCategoryName(requestCriteria.SeoFriendlyCategoryName));
             productListViewResult.Header = new ProductListViewResultHeader()
             {

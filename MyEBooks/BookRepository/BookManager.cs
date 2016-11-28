@@ -7,40 +7,40 @@ using MyEBooks.Models;
 namespace MyEBooks.Core
 {
 
-    public class BookManager
-    {
-        public IRepository repository;
+    //public class BookManager
+    //{
+    //    public IRepository repository;
         
-        public BookManager()
-        {
-            // default is FileSystemRepository
-            this.repository = new FileSystemRepository();
-        }
+    //    public BookManager()
+    //    {
+    //        // default is FileSystemRepository
+    //        this.repository = new FileSystemRepository();
+    //    }
 
-        public BookManager(IRepository repository)
-        {
-            this.repository = repository;
-        }
+    //    public BookManager(IRepository repository)
+    //    {
+    //        this.repository = repository;
+    //    }
 
-        public IList<Book> GetBooksByKeyword(string keyword)
-        {
-            IList<Book> books = new List<Book>();
-            books = repository.GetBooksByKeyword(keyword);
-            return books;
-        }
+    //    public IList<Book> GetBooksByKeyword(string keyword)
+    //    {
+    //        IList<Book> books = new List<Book>();
+    //        books = repository.GetBooksByKeyword(keyword);
+    //        return books;
+    //    }
 
-        internal IList<Book> GetBooksByCategory(string categoryName)
-        {
-             IList<Book> books = new List<Book>();
-             books = repository.GetBooksByCategory(categoryName);
-            return books;
-        }
+    //    internal IList<Book> GetBooksByCategory(string categoryName)
+    //    {
+    //         IList<Book> books = new List<Book>();
+    //         books = repository.GetBooksByCategory(categoryName);
+    //        return books;
+    //    }
 
-        internal IList<Book> GetBooksByYearMonth(int year, int month)
-        {
-            IList<Book> books = new List<Book>();
-            books = repository.GetBooksByYearMonth(year,month);
-            return books;
-        }
-    }
+    //    internal IList<Book> GetBooksByYearMonth(int year, int month)
+    //    {
+    //        IList<Book> books = new List<Book>();
+    //        books = repository.GetBooksByYearMonth(year,month);
+    //        return books;
+    //    }
+    //}
 }

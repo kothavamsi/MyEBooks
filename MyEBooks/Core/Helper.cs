@@ -8,7 +8,7 @@ namespace MyEBooks.Core
 {
     public  class Helper
     {
-        public static ProductListViewResult GetProductListViewResult(RequestCriteria requestCriteria, Response response)
+        public static ProductListViewResult GetProductListViewResult(RequestCriteria requestCriteria, Response response,IRepository repository)
         {
             ProductListViewResult catergoryViewResult;
             //if (!IsSearchCategoryValid(categoryName))
@@ -20,7 +20,7 @@ namespace MyEBooks.Core
             //    throw new Exception(string.Format("The Page No:{0} Is NotValid", pageNo));
             //}
 
-            catergoryViewResult = new ProductListViewResult()
+            catergoryViewResult = new ProductListViewResult(repository)
             {
                 ViewProducts = response.ViewProducts,
                 FoundResult = response.ViewProducts.Count > 0 ? true : false,

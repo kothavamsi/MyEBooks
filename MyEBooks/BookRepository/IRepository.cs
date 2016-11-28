@@ -8,10 +8,13 @@ namespace MyEBooks.Core
 {
     public interface IRepository
     {
-        IList<Book> GetBooksByKeyword(string keyword);
-        IList<Book> GetAllBooks();
-        IList<Book> GetBooksByCategory(string categoryName);
-        IList<Book> GetBooksByYearMonth(int year, int month);
+        void SaveContact(Contact contact);
+        IList<IProduct> GetAllProducts();
+        IList<IProduct> GetProductsByYearMonth(int year, int month);
+
+        //IList<IProduct> GetProductsBySearchKeyword(string keyword);
+        //IList<IProduct> GetProductsByCategory(string categoryName);
+        
 
         /// <summary>
         /// Gets Category ListMenu Items

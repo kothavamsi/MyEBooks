@@ -14,15 +14,11 @@ namespace MyEBooks.Controllers
         public IRepository _repository;
         public MyBaseController()
         {
-            _repository = new DatabaseRepository();
+            _repository = new FileSystemRepository();
+
+            // Dependency Injection
             ViewModelBaseObj = new ViewModelBase(_repository);
         }
-
-        //public IRepository _repository;
-        //public MyBaseController(IRepository repository)
-        //{
-        //    _repository = repository;
-        //    ViewModelBaseObj = new ViewModelBase(_repository);
-        //}
+               
     }
 }

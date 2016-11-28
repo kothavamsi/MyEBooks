@@ -71,8 +71,12 @@ namespace MyEBooks.Models
     {
         public string Title { get; set; }
         public IList<MonthlyTreeItem> MonthlyTreeItems { get; set; }
-        public MonthlyData()
+
+        // Dependency Injection
+        IRepository _repository;
+        public MonthlyData(IRepository repository)
         {
+            _repository = repository;
             MonthlyTreeItems = new List<MonthlyTreeItem>();
             LoadMonthlyData();
         }
@@ -101,7 +105,7 @@ namespace MyEBooks.Models
                 MonthlyTreeItems.Add(
                 new MonthlyTreeItem()
                 {
-                    DisplayValue = string.Format("{0} {1} ({2})", SiteMapData.MonthNames[dt.Month], dt.Year, new BookManager().GetBooksByYearMonth(dt.Year, dt.Month).Count),
+                    DisplayValue = string.Format("{0} {1} ({2})", SiteMapData.MonthNames[dt.Month], dt.Year, _repository.GetProductsByYearMonth(dt.Year, dt.Month).Count),
                     Month = dt.Month,
                     Year = dt.Year
                 });
@@ -110,7 +114,7 @@ namespace MyEBooks.Models
         }
     }
 
-    public class SiteMapData :ViewModelBase
+    public class SiteMapData : ViewModelBase
     {
         public static string[] MonthNames = new string[] { "", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
 
@@ -119,12 +123,16 @@ namespace MyEBooks.Models
         public PopularPublisherData PopularPublisherData;
         public MonthlyData MonthlyData;
 
-        public SiteMapData()
+        // Dependency Injection
+        IRepository _repository;
+        public SiteMapData(IRepository repository)
+            : base(repository)
         {
+            this._repository = repository;
             PopularTagData = new PopularTagData();
             PopularAuthorData = new PopularAuthorData();
             PopularPublisherData = new PopularPublisherData();
-            MonthlyData = new MonthlyData();
+            MonthlyData = new MonthlyData(_repository);
             LoadSiteMapData();
         }
 

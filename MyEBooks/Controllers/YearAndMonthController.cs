@@ -23,7 +23,8 @@ namespace MyEBooks.Controllers
 
             Response response = _repository.GetProducts(requestCriteria);
 
-            var productListViewResult = Helper.GetProductListViewResult(requestCriteria, response);
+            // Dependency Injection
+            var productListViewResult = Helper.GetProductListViewResult(requestCriteria, response, _repository);
             string headerMessage = string.Format("Added {0} Books In {1} {2}", response.ProductCount, SiteMapData.MonthNames[Month], Year);
             productListViewResult.Header = new ProductListViewResultHeader()
             {

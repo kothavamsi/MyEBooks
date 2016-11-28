@@ -3,11 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
+using MyEBooks.Core;
 
 namespace MyEBooks.Models
 {
     public class Contact : ViewModelBase
     {
+        public Contact()
+        {
+        }
+
+        // Dependency Injection
+        IRepository _repository;
+        public Contact(IRepository repository)
+            : base(repository)
+        {
+            _repository = repository;
+        }
+
         public int Id { get; set; }
         [Required(ErrorMessage = "Please enter First name")]
         public string Fname { get; set; }

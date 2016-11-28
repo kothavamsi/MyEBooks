@@ -14,7 +14,8 @@ namespace MyEBooks.Controllers
 
         public ActionResult Index()
         {
-            var topSellers = new TopSellers();
+            // Dependency Injection
+            var topSellers = new TopSellers(_repository);
             topSellers.NavigationBar.RenderSortByListMenu = false;
             return View("Index", topSellers);
         }

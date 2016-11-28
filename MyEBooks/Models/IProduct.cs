@@ -7,6 +7,6 @@ namespace MyEBooks.Models
 {
     public interface IProduct
     {
-
+        string Title { get; set; }
     }
 }

@@ -24,7 +24,8 @@ namespace MyEBooks.Controllers
 
         public ActionResult Contact()
         {
-            var contact = new Contact();
+            // Dependency Injection
+            Contact contact = new Contact(_repository);
             contact.NavigationBar.RenderSortByListMenu = false;
             return View("Contact", contact);
         }
@@ -32,6 +33,10 @@ namespace MyEBooks.Controllers
         [HttpPost]
         public ActionResult Contact(Contact contact)
         {
+            // Dependency Injection made manually as Contact object is created by MVC framework 
+            // by calling zero argument constructor but our dependency is injected using one argument constructor
+            contact.NavigationBar = new NavigationBar(_repository);
+
             if (ModelState.IsValid)
             {
                 this.ViewModelBaseObj.NavigationBar.RenderSortByListMenu = false;
@@ -77,7 +82,8 @@ namespace MyEBooks.Controllers
 
         public ActionResult Sitemap()
         {
-            var siteMapData = new SiteMapData();
+            // Dependency Injection
+            var siteMapData = new SiteMapData(_repository);
             siteMapData.NavigationBar.RenderSortByListMenu = false;
             return View("Sitemap", siteMapData);
         }

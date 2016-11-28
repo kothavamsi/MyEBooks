@@ -2,32 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using MyEBooks.Models;
 
 namespace MyEBooks.Core
 {
     public class DatabaseRepository : IRepository
     {
-        public IList<Models.Book> GetBooksByKeyword(string keyword)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IList<Models.Book> GetAllBooks()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IList<Models.Book> GetBooksByCategory(string categoryName)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IList<Models.Book> GetBooksByYearMonth(int year, int month)
-        {
-            throw new NotImplementedException();
-        }
-
-
         public IList<CategoryListItem> GetCategoryListItems()
         {
             IList<CategoryListItem> categoryLstItems = new List<CategoryListItem>();
@@ -107,14 +87,22 @@ namespace MyEBooks.Core
             return sortByLstItems;
         }
 
-
-        public Response GetBooksByRequestCriteria(RequestCriteria requestCriteria)
+        public IList<IProduct> GetAllProducts()
         {
             throw new NotImplementedException();
         }
 
+        public IList<IProduct> GetProductsByYearMonth(int year, int month)
+        {
+            throw new NotImplementedException();
+        }
 
         public Response GetProducts(RequestCriteria requestCriteria)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SaveContact(Contact contact)
         {
             throw new NotImplementedException();
         }

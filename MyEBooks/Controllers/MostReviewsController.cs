@@ -14,7 +14,8 @@ namespace MyEBooks.Controllers
 
         public ActionResult Index()
         {
-            var mostReviews = new MostReviews();
+            // Dependency Injection
+            var mostReviews = new MostReviews(_repository);
             mostReviews.NavigationBar.RenderSortByListMenu = false;
             return View("Index", mostReviews);
         }

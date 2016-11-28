@@ -1,21 +1,21 @@
-﻿@model MyEBooks.Models.SearchResult
+﻿@model MyEBooks.Models.ProductListViewResult
 @{
     ViewBag.Title = "Search Results";
     int cols = 4;
-    int totalBookCount = Model.DisplayedBooks.Count;
+    int totalBookCount = Model.ProductCount;
     int rows = (totalBookCount / cols) + (totalBookCount % cols > 0 ? 1 : 0);
     int bookIndex = 0;
 }
-@if (Model.FoundResult)
+@if (@Model.FoundResult)
 {
     <div class="visible-lg-inline visible-md-inline">
         <h2>
-            Search Results for: @Model.SearchKeyword (found '@Model.Books.Count()' Books)
+            @Model.Header.Message
         </h2>
     </div>
     <div class="visible-sm-inline visible-xs-inline">
         <h3>
-            Search Results for: @Model.SearchKeyword (found '@Model.Books.Count()' Books)
+            @Model.Header.Message
         </h3>
     </div>
     
@@ -39,7 +39,7 @@
                     <div class="@colLayout">
                         <div class="panel panel-info">
                             <div class="panel-heading text-nowrap">
-                                <h5 class="panel-title" style="overflow: hidden">@Model.DisplayedBooks[bookIndex].Title</h5>
+                                <h5 class="panel-title" style="overflow: hidden">@Model.ViewProducts[bookIndex].Title</h5>
                             </div>
                             <div class="panel-body">
                                 <img src="http://ecx.images-amazon.com/images/I/514%2BoWhnajL._SL200_.jpg" alt="phyton guide"
@@ -75,7 +75,7 @@
 else
 {
     <h1 class="h2 alert-danger">
-        Search Results for: @Model.SearchKeyword
+         @Model.Header.Message
     </h1>
     <p>
         Sorry, no ebooks matched your criteria.</p>

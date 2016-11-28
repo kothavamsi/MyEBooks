@@ -212,7 +212,9 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Pager.cs" />
     <Compile Include="Models\TopSellers.cs" />
-    <Compile Include="Models\ViewModelBase.cs" />
+    <Compile Include="Models\ViewModelBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="PagerHandler\Config\PagerManagerSection.cs" />
     <Compile Include="PagerHandler\PagerSettingsHandler\PagerSettings.cs" />
     <Compile Include="PagerHandler\PagerSettingsHandler\PagerSettingsManager.cs" />

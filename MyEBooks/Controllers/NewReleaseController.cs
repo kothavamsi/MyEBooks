@@ -11,7 +11,8 @@ namespace MyEBooks.Controllers
     {
         public ActionResult Index()
         {
-            var newRelease = new NewRelease();
+            // Dependency Injection
+            var newRelease = new NewRelease(_repository);
             newRelease.NavigationBar.RenderSortByListMenu = false;
             return View("Index", newRelease);
         }

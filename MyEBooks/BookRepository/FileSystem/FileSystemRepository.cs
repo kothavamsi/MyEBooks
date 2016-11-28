@@ -12,21 +12,132 @@ namespace MyEBooks.Core
 {
     public class FileSystemRepository : IRepository
     {
-        public IList<Book> GetBooksByKeyword(string keyword)
+        public Response GetProducts(RequestCriteria requestCriteria)
         {
-            IList<Book> books = new List<Book>();
-            books = FindBooks(keyword);
-            return books;
+            var response = new Response();
+            response.ProductCount = 30;
+            if (requestCriteria.RequestMode == RequestMode.SearchKeyWord)
+            {
+                response.ViewProducts = GetProductsBySearchKeyword(requestCriteria.SearchKeyWord).Take(10).ToList();
+            }
+            if (requestCriteria.RequestMode == RequestMode.GetItemsInCategory)
+            {
+                response.ViewProducts = GetProductsByCategory(requestCriteria.SeoFriendlyCategoryName).Take(10).ToList();
+            }
+            return response;
         }
 
-        public IList<Book> GetAllBooks()
+        public IList<IProduct> GetAllProducts()
         {
             throw new NotImplementedException();
         }
 
-        public IList<Book> GetBooksByCategory(string categoryName)
+        public IList<IProduct> GetProductsByYearMonth(int year, int month)
         {
-            List<Book> foundBooks = new List<Book>();
+            List<IProduct> foundBooks = new List<IProduct>();
+            foundBooks = FindBooks(string.Format("{0}", year));
+            return foundBooks;
+        }
+
+        public IList<CategoryListItem> GetCategoryListItems()
+        {
+            IList<CategoryListItem> categoryLstItems = new List<CategoryListItem>();
+            categoryLstItems.Add(new CategoryListItem()
+            {
+                Id = 1,
+                ParentId = 0,
+                Rank = 2,
+                Weight = 1,
+                Enabled = true,
+                Text = "Wcf Technologies",
+                SeoFriendlyText = "WCF",
+                BackEndPurposeText = "WCF"
+            });
+
+            categoryLstItems.Add(new CategoryListItem()
+            {
+                Id = 2,
+                ParentId = 0,
+                Rank = 1,
+                Weight = 2,
+                Enabled = true,
+                Text = "LINQ Technologies",
+                SeoFriendlyText = "LINQ",
+                BackEndPurposeText = "LINQ"
+            });
+            categoryLstItems.Add(new CategoryListItem()
+            {
+                Id = 3,
+                ParentId = 0,
+                Rank = 3,
+                Weight = 2,
+                Enabled = true,
+                Text = "ASP .NET",
+                SeoFriendlyText = "AspDotNet",
+                BackEndPurposeText = "AspDotNet"
+            });
+            categoryLstItems.Add(new CategoryListItem()
+            {
+                Id = 4,
+                ParentId = 0,
+                Rank = 3,
+                Weight = 2,
+                Enabled = true,
+                Text = "C#",
+                SeoFriendlyText = "CSharp",
+                BackEndPurposeText = "CSharp"
+            });
+            return categoryLstItems;
+        }
+
+        public IList<SortByListItem> GetSortByListItems()
+        {
+            IList<SortByListItem> sortByLstItems = new List<SortByListItem>();
+            sortByLstItems.Add(new SortByListItem()
+            {
+                Id = 1,
+                Enabled = true,
+                Rank = 2,
+                Weight = 1,
+                Text = "upload(default)",
+                SeoFriendlyText = "upload",
+                BackEndPurposeText = "upload"
+            });
+
+            sortByLstItems.Add(new SortByListItem()
+            {
+                Id = 2,
+                Enabled = true,
+                Rank = 3,
+                Weight = 1,
+                Text = "Publication Date",
+                SeoFriendlyText = "publication-date",
+                BackEndPurposeText = "publicationdate"
+            });
+            sortByLstItems.Add(new SortByListItem()
+            {
+                Id = 3,
+                Enabled = true,
+                Rank = 1,
+                Weight = 1,
+                Text = "Avg. User Review",
+                SeoFriendlyText = "avg-user-review",
+                BackEndPurposeText = "avgUserReview"
+            });
+
+            return sortByLstItems;
+        }
+
+        private IList<IProduct> GetProductsBySearchKeyword(string keyword)
+        {
+            IList<IProduct> books = new List<IProduct>();
+            books = FindBooks(keyword);
+            return books;
+        }
+
+        private IList<IProduct> GetProductsByCategory(string categoryName)
+        {
+            List<IProduct> foundBooks = new List<IProduct>();
             string categoryLocationTemplate;
             if (BooksLocationSettings.categories.TryGetValue(categoryName, out categoryLocationTemplate))
             {
@@ -44,9 +155,9 @@ namespace MyEBooks.Core
             return foundBooks;
         }
 
-        private static List<Book> FindBooks(string keyword)
+        private static List<IProduct> FindBooks(string keyword)
         {
-            List<Book> foundBooks = new List<Book>();
+            List<IProduct> foundBooks = new List<IProduct>();
             foreach (var path in BooksLocationSettings.Locations)
             {
                 var r = FindBooksAtPath(keyword, path);
@@ -87,26 +198,8 @@ namespace MyEBooks.Core
 
 
 
-        public IList<Book> GetBooksByYearMonth(int year, int month)
-        {
-            List<Book> foundBooks = new List<Book>();
-            foundBooks = FindBooks(string.Format("{0}", year));
-            return foundBooks;
-        }
 
-
-        public IList<CategoryListItem> GetCategoryListItems()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IList<SortByListItem> GetSortByListItems()
-        {
-            throw new NotImplementedException();
-        }
-
-
-        public Response GetProducts(RequestCriteria requestCriteria)
+        public void SaveContact(Contact contact)
         {
             throw new NotImplementedException();
         }
