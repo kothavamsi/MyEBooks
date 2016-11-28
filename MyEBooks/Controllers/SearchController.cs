@@ -55,7 +55,8 @@ namespace MyEBooks.Controllers
                 PageNo = pageNo,
                 Pager = pager,
                 SearchKeyword = keyword,
-                FoundResult = foundResult
+                FoundResult = foundResult,
+                NavBar = new NavBar() { RenderSortBy = false }
             };
             return searchResult;
         }

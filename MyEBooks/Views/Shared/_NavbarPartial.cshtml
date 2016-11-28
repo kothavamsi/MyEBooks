@@ -1,4 +1,5 @@
-﻿<nav class="navbar navbar-inverse navbar-fixed-top">
+﻿@model MyEBooks.Models.NavBar
+<nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid ">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -15,7 +16,7 @@
                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                     aria-haspopup="true" aria-expanded="false">Books <span class="caret"></span></a>
                     <ul class="dropdown-menu scrollable-menu">
-                        @foreach (var categoryName in MyEBooks.BookRepository.FileSystem.BooksLocationSettingsHandler.BooksLocationSettings.categories.Keys)
+                        @foreach (var categoryName in Model.Categories.Keys)
                         {
                             <li>@Html.ActionLink(categoryName, categoryName.ToLower(), "category")</li>
                         }
@@ -27,33 +28,38 @@
                         <li><a href="#">One more separated link</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Top Sellers</a></li>
+                <li>@Html.ActionLink("Top Sellers", "Index","TopSellers")</li>
                 <li><a href="#">Most Reviews</a></li>
                 <li><a href="#">New Release</a></li>
-                <li>@Html.ActionLink("Contact", "Contact")</li>
-                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-                    aria-haspopup="true" aria-expanded="false">Sort By <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">PostDate(Default)</a></li>
-                        <li><a href="#">Upload Date</a></li>
-                        <li><a href="#">Publication Date</a></li>
-                        <li><a href="#">Most Reviews</a></li>
-                        <li><a href="#">Avg. customer Review</a></li>
-                        <li><a href="#">Most Downloads</a></li>
-                    </ul>
-                </li>
+                <li>@Html.ActionLink("Contact", "Contact","Home")</li>
+                @if (Model.RenderSortBy)
+                {
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                        aria-haspopup="true" aria-expanded="false">Sort By <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">PostDate(Default)</a></li>
+                            <li><a href="#">Upload Date</a></li>
+                            <li><a href="#">Publication Date</a></li>
+                            <li><a href="#">Most Reviews</a></li>
+                            <li><a href="#">Avg. customer Review</a></li>
+                            <li><a href="#">Most Downloads</a></li>
+                        </ul>
+                    </li>
+                }
             </ul>
-            <form class="navbar-form navbar-left form-inline" method="post" action="/search/index">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for..." id="keyword"
-                    name="keyword">
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="submit">
-                        Go!</button>
-                </span>
-            </div>
-            </form>
             <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <form class="navbar-form navbar-left form-inline" method="post" action="/search/index">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search for..." id="keyword"
+                            name="keyword">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                Go!</button>
+                        </span>
+                    </div>
+                    </form>
+                </li>
                 @Html.Partial("_LoginPartial")
             </ul>
         </div>

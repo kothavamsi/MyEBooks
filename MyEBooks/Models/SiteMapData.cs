@@ -109,7 +109,7 @@ namespace MyEBooks.Models
         }
     }
 
-    public class SiteMapData
+    public class SiteMapData :ViewModelBase
     {
         public static string[] MonthNames = new string[] { "", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
 

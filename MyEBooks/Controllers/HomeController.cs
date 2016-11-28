@@ -9,23 +9,26 @@ using MyEBooks.WebApi;
 
 namespace MyEBooks.Controllers
 {
-
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
-
-            return View();
+            var viewModelBase = new ViewModelBase();
+            return View("Index", viewModelBase);
         }
 
         public ActionResult About()
         {
-            return View();
+            var viewModelBase = new ViewModelBase();
+            viewModelBase.NavBar.RenderSortBy = false;
+            return View("About", viewModelBase);
         }
 
         public ActionResult Contact()
         {
-            return View();
+            var contact = new Contact();
+            contact.NavBar.RenderSortBy = false;
+            return View("Contact", contact);
         }
 
         [HttpPost]
@@ -33,43 +36,58 @@ namespace MyEBooks.Controllers
         {
             if (ModelState.IsValid)
             {
-                return View("ContactSuccess");
+                var viewModelBase = new ViewModelBase();
+                viewModelBase.NavBar.RenderSortBy = false;
+                return View("ContactSuccess", viewModelBase);
             }
             else
             {
                 DBManager.SaveContact(contact);
-                return View(contact);
+                contact.NavBar.RenderSortBy = false;
+                return View("Contact", contact);
             }
         }
 
         public ActionResult PrivacyPolicy()
         {
-            return View();
+            var viewModelBase = new ViewModelBase();
+            viewModelBase.NavBar.RenderSortBy = false;
+            return View("PrivacyPolicy", viewModelBase);
         }
 
         public ActionResult FAQ()
         {
-            return View();
+            var viewModelBase = new ViewModelBase();
+            viewModelBase.NavBar.RenderSortBy = false;
+            return View("FAQ", viewModelBase);
         }
 
         public ActionResult RSS()
         {
-            return View();
+            var viewModelBase = new ViewModelBase();
+            viewModelBase.NavBar.RenderSortBy = false;
+            return View("RSS", viewModelBase);
         }
 
         public ActionResult DMCA()
         {
-            return View();
+            var viewModelBase = new ViewModelBase();
+            viewModelBase.NavBar.RenderSortBy = false;
+            return View("DMCA", viewModelBase);
         }
 
         public ActionResult Donate()
         {
-            return View();
+            var viewModelBase = new ViewModelBase();
+            viewModelBase.NavBar.RenderSortBy = false;
+            return View("Donate", viewModelBase);
         }
 
         public ActionResult Sitemap()
         {
-            return View("sitemap", new SiteMapData());
+            var siteMapData = new SiteMapData();
+            siteMapData.NavBar.RenderSortBy = false;
+            return View("Sitemap", siteMapData);
         }
     }
 }

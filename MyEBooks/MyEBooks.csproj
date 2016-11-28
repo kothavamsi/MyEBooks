@@ -170,9 +170,14 @@
     <Compile Include="BookRepository\FileSystem\Config\BooksLocationManagerSection.cs" />
     <Compile Include="BookRepository\FileSystem\BooksLocationSettingsHandler\BooksLocationSettings.cs" />
     <Compile Include="BookRepository\FileSystem\BooksLocationSettingsHandler\BooksLocationSettingsManager.cs" />
+    <Compile Include="Controllers\MostReviewsController.cs" />
+    <Compile Include="Controllers\NewReleaseController.cs" />
+    <Compile Include="Controllers\TopSellersController.cs" />
     <Compile Include="Controllers\YearAndMonthController.cs" />
     <Compile Include="DataBaseHandler\DBManager.cs" />
     <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\MostReviews.cs" />
+    <Compile Include="Models\NewRelease.cs" />
     <Compile Include="Models\SiteMapData.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="LogHandler\Config\LogManagerSection.cs" />
@@ -200,6 +205,8 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Pager.cs" />
     <Compile Include="Models\SearchResult.cs" />
+    <Compile Include="Models\TopSellers.cs" />
+    <Compile Include="Models\ViewModelBase.cs" />
     <Compile Include="PagerHandler\Config\PagerManagerSection.cs" />
     <Compile Include="PagerHandler\PagerSettingsHandler\PagerSettings.cs" />
     <Compile Include="PagerHandler\PagerSettingsHandler\PagerSettingsManager.cs" />
@@ -328,6 +335,9 @@
     </EntityDeploy>
     <Content Include="Views\Shared\_PopularTagsPartial.cshtml" />
     <Content Include="Views\Shared\_MonthlyPartial.cshtml" />
+    <Content Include="Views\TopSellers\Index.cshtml" />
+    <Content Include="Views\MostReviews\Index.cshtml" />
+    <Content Include="Views\NewRelease\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

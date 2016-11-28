@@ -5,7 +5,7 @@ using System.Web;
 
 namespace MyEBooks.Models
 {
-    public class SearchResult
+    public class SearchResult : ViewModelBase
     {
         public bool FoundResult { get; set; }
         public string SearchKeyword { get; set; }

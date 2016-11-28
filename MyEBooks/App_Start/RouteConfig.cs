@@ -52,6 +52,32 @@ namespace MyEBooks
             );
 
             routes.MapRoute(
+                name: "TopSellers",
+                url: "top-sellers/",
+                defaults: new { controller = "TopSellers", action = "Index" }
+            );
+
+            routes.MapRoute(
+                name: "MostReviews",
+                url: "most-reviews/",
+                defaults: new { controller = "MostReviews", action = "Index" }
+            );
+            routes.MapRoute(
+               name: "MostReviewsPage",
+               url: "most-reviews/page/{pageNo}",
+               defaults: new { controller = "MostReviews", action = "Index" }
+           );
+            routes.MapRoute(
+                name: "NewRelease",
+                url: "new-release/",
+                defaults: new { controller = "NewRelease", action = "Index" }
+            );
+            routes.MapRoute(
+               name: "NewReleasePage",
+               url: "new-release/page/{pageNo}",
+               defaults: new { controller = "NewRelease", action = "Index" }
+           );
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}",
                 defaults: new { controller = "Home", action = "Index" }
