@@ -5,6 +5,7 @@ using System.Web;
 using MyEBooks.WebApi;
 using MyEBooks.Models;
 using MyEBooks.SiteMap;
+using MyEBooks.Core;
 
 namespace MyEBooks.Models
 {
@@ -77,7 +78,6 @@ namespace MyEBooks.Models
 
         public void LoadMonthlyData()
         {
-            var MonthNames = new string[] { "", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
             int startMonth, startYear, endMonth, endYear;
 
             if (SiteMapSettings.BooksByMonth.Relative.Enabled == true)
@@ -100,8 +100,8 @@ namespace MyEBooks.Models
                 MonthlyTreeItems.Add(
                 new MonthlyTreeItem()
                 {
-                    DisplayValue = string.Format("{0} {1} ({2})", MonthNames[dt.Month], dt.Year, 50),
-                    Month= dt.Month,
+                    DisplayValue = string.Format("{0} {1} ({2})", SiteMapData.MonthNames[dt.Month], dt.Year, new BookManager().GetBooksByYearMonth(dt.Year, dt.Month).Count),
+                    Month = dt.Month,
                     Year = dt.Year
                 });
                 dt = dt.AddMonths(-1);
@@ -111,6 +111,8 @@ namespace MyEBooks.Models
 
     public class SiteMapData
     {
+        public static string[] MonthNames = new string[] { "", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+
         public PopularTagData PopularTagData;
         public PopularAuthorData PopularAuthorData;
         public PopularPublisherData PopularPublisherData;
@@ -126,7 +128,7 @@ namespace MyEBooks.Models
 
         public void LoadSiteMapData()
         {
-            PopularTagData.PopularTags = MapDBPopularSearchTagToViewTagData(new TagManager().GetPopularTagsByRecent(50));
+            PopularTagData.PopularTags = MapDBPopularSearchTagToViewTagData(new TagManager().GetPopularTagsByRecent(SiteMapSettings.PopularTags.TotalItems));
         }
 
         public IEnumerable<TagData> MapDBPopularSearchTagToViewTagData(IEnumerable<PopularTag> dbTags)

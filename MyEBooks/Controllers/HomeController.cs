@@ -18,12 +18,6 @@ namespace MyEBooks.Controllers
             return View();
         }
 
-        public ActionResult YearAndMonth(int Year,int Month)
-        {
-            return View("Result", new SearchResult());
-        }
-
-        
         public ActionResult About()
         {
             return View();

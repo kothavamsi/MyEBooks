@@ -7,7 +7,7 @@ namespace MyEBooks.WebApi
 {
     public static class TagExtenstions
     {
-        public static PopularTag Create(this PopularTag tag, string keyWord)
+        public static PopularTag CreateTagInstance(this PopularTag tag, string keyWord)
         {
             PopularTag pt = new PopularTag()
             {

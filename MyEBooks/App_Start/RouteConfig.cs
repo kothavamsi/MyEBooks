@@ -39,10 +39,16 @@ namespace MyEBooks
 
             routes.MapRoute(
                 name: "YearAndMonth",
-                url: "{Year}/{Month}",
-                defaults: new { controller = "Home", action = "YearAndMonth" },
+                url: "{Year}/{Month}/page/{pageNo}",
+                defaults: new { controller = "YearAndMonth", action = "Index" },
                 constraints: new { Year = @"\d{4}", Month=@"\d{1,2}" }
+            );
 
+            routes.MapRoute(
+                name: "YearAndMonthPage",
+                url: "{Year}/{Month}",
+                defaults: new { controller = "YearAndMonth", action = "Index" },
+                constraints: new { Year = @"\d{4}", Month = @"\d{1,2}" }
             );
 
             routes.MapRoute(

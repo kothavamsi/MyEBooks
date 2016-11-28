@@ -85,5 +85,13 @@ namespace MyEBooks.Core
             return retVal;
         }
 
+
+
+        public IList<Book> GetBooksByYearMonth(int year, int month)
+        {
+            List<Book> foundBooks = new List<Book>();
+            foundBooks = FindBooks(string.Format("{0}", year));
+            return foundBooks;
+        }
     }
 }

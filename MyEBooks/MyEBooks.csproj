@@ -170,6 +170,7 @@
     <Compile Include="BookRepository\FileSystem\Config\BooksLocationManagerSection.cs" />
     <Compile Include="BookRepository\FileSystem\BooksLocationSettingsHandler\BooksLocationSettings.cs" />
     <Compile Include="BookRepository\FileSystem\BooksLocationSettingsHandler\BooksLocationSettingsManager.cs" />
+    <Compile Include="Controllers\YearAndMonthController.cs" />
     <Compile Include="DataBaseHandler\DBManager.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\SiteMapData.cs" />

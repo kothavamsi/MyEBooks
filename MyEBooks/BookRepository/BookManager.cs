@@ -35,5 +35,12 @@ namespace MyEBooks.Core
              books = repository.GetBooksByCategory(categoryName);
             return books;
         }
+
+        internal IList<Book> GetBooksByYearMonth(int year, int month)
+        {
+            IList<Book> books = new List<Book>();
+            books = repository.GetBooksByYearMonth(year,month);
+            return books;
+        }
     }
 }

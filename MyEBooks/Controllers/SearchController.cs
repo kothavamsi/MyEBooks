@@ -25,7 +25,7 @@ namespace MyEBooks.Controllers
             var searchResult = GetBookSearchResult(keyword, pageNo);
             if (searchResult.FoundResult)
             {
-                new TagManager().PostPopularTag(new PopularTag().Create(keyword));
+                new TagManager().PostPopularTag(new PopularTag().CreateTagInstance(keyword));
             }
             return View("Result", searchResult);
         }

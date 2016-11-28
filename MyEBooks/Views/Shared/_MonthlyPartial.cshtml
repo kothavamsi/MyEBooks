@@ -4,6 +4,6 @@
 <ul>
     @foreach (var treeItem in Model.MonthlyTreeItems)
     {
-        <li>@Html.ActionLink(@treeItem.DisplayValue, "YearAndMonth", new { Year = @treeItem.Year, Month = @treeItem.Month })</li>
+        <li>@Html.ActionLink(@treeItem.DisplayValue, "Index", "YearAndMonth", new { Year = @treeItem.Year, Month = @treeItem.Month }, null)</li>
     }
 </ul>
