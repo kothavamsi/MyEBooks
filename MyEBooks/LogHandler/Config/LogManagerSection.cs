@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Configuration;
 using System.Globalization;
-using MyEBooks.LogHandler.LogSettingsHandler;
+using ProductsEStore.LogHandler.LogSettingsHandler;
 
-namespace MyEBooks.LogHandler.Config
+namespace ProductsEStore.LogHandler.Config
 {
     public class LogManagerSection : ConfigurationSection
     {

@@ -1,7 +1,7 @@
 ﻿using System.Configuration;
-using MyEBooks.LogHandler.Config;
+using ProductsEStore.LogHandler.Config;
 
-namespace MyEBooks.LogHandler.LogSettingsHandler
+namespace ProductsEStore.LogHandler.LogSettingsHandler
 {
     public static class LogSettingsManager
     {

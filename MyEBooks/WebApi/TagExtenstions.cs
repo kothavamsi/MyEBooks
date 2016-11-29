@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using ProductsEStore.Repository.DataBase;
 
-namespace MyEBooks.WebApi
+namespace ProductsEStore.WebApi
 {
     public static class TagExtenstions
     {

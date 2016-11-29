@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using ProductsEStore.Repository.DataBase;
 using System.Linq;
-using System.Web;
 
-namespace MyEBooks.WebApi
+namespace ProductsEStore.WebApi
 {
     public enum FILTER
     {
@@ -13,10 +13,10 @@ namespace MyEBooks.WebApi
 
     public class TagManager
     {
-        MyEbooksEntities dbContext;
+        ProductStoreEntities dbContext;
         public TagManager()
         {
-            dbContext = new MyEbooksEntities();
+            dbContext = new ProductStoreEntities();
         }
 
         public IEnumerable<PopularTag> GetAllPopularTags(string filterBy, int totalItems)

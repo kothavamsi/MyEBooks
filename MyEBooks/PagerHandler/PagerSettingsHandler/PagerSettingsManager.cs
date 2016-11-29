@@ -1,8 +1,8 @@
 ﻿using System.Configuration;
-using MyEBooks.LogHandler.Config;
-using MyEBooks.PagerHandler.Config;
+using ProductsEStore.LogHandler.Config;
+using ProductsEStore.PagerHandler.Config;
 
-namespace MyEBooks.PagerHandler.PagerSettingsHandler
+namespace ProductsEStore.PagerHandler.PagerSettingsHandler
 {
     public static class PagerSettingsManager
     {

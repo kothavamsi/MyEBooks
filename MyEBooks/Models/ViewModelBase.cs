@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using MyEBooks.BookRepository.FileSystem.BooksLocationSettingsHandler;
-using MyEBooks.Core;
+using ProductsEStore.Core;
 
-namespace MyEBooks.Models
+namespace ProductsEStore.Models
 {
     // This is StronglyTyped ViewModel For Layout
     public class ViewModelBase

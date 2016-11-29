@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MyEBooks.Models;
-using MyEBooks.Core;
+using ProductsEStore.Models;
+using ProductsEStore.Core;
 
-namespace MyEBooks.Controllers
+namespace ProductsEStore.Controllers
 {
     public class MyBaseController : Controller
     {
@@ -14,7 +14,7 @@ namespace MyEBooks.Controllers
         public IRepository _repository;
         public MyBaseController()
         {
-            _repository = new FileSystemRepository();
+            _repository = new DatabaseRepository();
 
             // Dependency Injection
             ViewModelBaseObj = new ViewModelBase(_repository);

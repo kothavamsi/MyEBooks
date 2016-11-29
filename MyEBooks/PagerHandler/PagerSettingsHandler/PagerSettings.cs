@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MyEBooks.PagerHandler.PagerSettingsHandler
+namespace ProductsEStore.PagerHandler.PagerSettingsHandler
 {
     public static class PagerSettings
     {

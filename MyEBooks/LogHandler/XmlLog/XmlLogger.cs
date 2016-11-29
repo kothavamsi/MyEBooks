@@ -1,6 +1,6 @@
-﻿using MyEBooks.LogHandler.LogSettingsHandler;
+﻿using ProductsEStore.LogHandler.LogSettingsHandler;
 
-namespace MyEBooks.LogHandler.XmlLog
+namespace ProductsEStore.LogHandler.XmlLog
 {
     public class XmlLogger : ILogger
     {

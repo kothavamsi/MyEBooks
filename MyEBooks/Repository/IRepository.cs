@@ -2,19 +2,31 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using MyEBooks.Models;
+using ProductsEStore.Models;
 
-namespace MyEBooks.Core
+namespace ProductsEStore.Core
 {
     public interface IRepository
     {
+        /// <summary>
+        /// Saves Contact Us Form Information into database
+        /// </summary>
+        /// <param name="contact"></param>
         void SaveContact(Contact contact);
-        IList<IProduct> GetAllProducts();
-        IList<IProduct> GetProductsByYearMonth(int year, int month);
 
-        //IList<IProduct> GetProductsBySearchKeyword(string keyword);
-        //IList<IProduct> GetProductsByCategory(string categoryName);
-        
+        /// <summary>
+        /// Gets All Products
+        /// </summary>
+        /// <returns></returns>
+        IList<IProduct> GetAllProducts();
+
+        /// <summary>
+        /// Gets Number of products per year,per month
+        /// </summary>
+        /// <param name="year"></param>
+        /// <param name="month"></param>
+        /// <returns></returns>
+        IList<IProduct> GetProductsByYearMonth(int year, int month);
 
         /// <summary>
         /// Gets Category ListMenu Items

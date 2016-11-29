@@ -5,9 +5,9 @@ using System.Web.Http;
 using Newtonsoft.Json.Serialization;
 using System.Net.Http.Headers;
 using System.Net.Http.Formatting;
-using MyEBooks.WebApi;
+using ProductsEStore.WebApi;
 
-namespace MyEBooks
+namespace ProductsEStore
 {
     //public class CustomJsonFormatter : JsonMediaTypeFormatter
     //{
@@ -33,7 +33,7 @@ namespace MyEBooks
                 defaults: new { controller = "PopularTags", totalItems = RouteParameter.Optional }
             );
 
-            config.Formatters.Add(new TagSliceCustomJsonFormatter());
+            //config.Formatters.Add(new TagSliceCustomJsonFormatter());
             //config.Formatters.Add(new CustomJsonFormatter());
             //config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
             //config.Formatters.JsonFormatter.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;

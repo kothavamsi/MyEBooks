@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MyEBooks.LogHandler.LogSettingsHandler
+namespace ProductsEStore.LogHandler.LogSettingsHandler
 {
     public class Listener
     {

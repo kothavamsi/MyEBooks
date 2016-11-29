@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using MyEBooks.SiteMap.Config;
+using ProductsEStore.SiteMap.Config;
 using System.Configuration;
 using System.Web.Configuration;
 
-namespace MyEBooks.SiteMap
+namespace ProductsEStore.SiteMap
 {
     public class SiteMapSettingsManager
     {
@@ -20,9 +20,9 @@ namespace MyEBooks.SiteMap
             Configuration config = WebConfigurationManager.OpenWebConfiguration("~");
             SiteMapSectionGroup siteMapData = (SiteMapSectionGroup)config.GetSectionGroup("siteMapData");
 
-            SiteMapSettings.PopularTags.TotalItems = siteMapData.PopularTags.TotalItems <= 0 ? 50 : siteMapData.PopularTags.TotalItems;
-            SiteMapSettings.PopularAuthorTags.TotalItems = siteMapData.PopularAuthorTags.TotalItems <= 0 ? 50 : siteMapData.PopularAuthorTags.TotalItems;
-            SiteMapSettings.PopularPublisherTags.TotalItems = siteMapData.PopularPublisherTags.TotalItems <= 0 ? 50 : siteMapData.PopularPublisherTags.TotalItems;
+            SiteMapSettings.PopularTags.TagDisplayCount = siteMapData.PopularTags.TotalItems <= 0 ? 50 : siteMapData.PopularTags.TotalItems;
+            SiteMapSettings.PopularAuthorTags.TagDisplayCount = siteMapData.PopularAuthorTags.TotalItems <= 0 ? 50 : siteMapData.PopularAuthorTags.TotalItems;
+            SiteMapSettings.PopularPublisherTags.TagDisplayCount = siteMapData.PopularPublisherTags.TotalItems <= 0 ? 50 : siteMapData.PopularPublisherTags.TotalItems;
             SiteMapSettings.RecentBooks.TotalItems = siteMapData.RecentBooks.TotalItems <= 0 ? 25 : siteMapData.RecentBooks.TotalItems;
 
             SiteMapSettings.BooksByMonth.Fixed.Enabled = siteMapData.BooksByMonth.Fixed.Enabled;

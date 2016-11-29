@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using MyEBooks.LogHandler.LogSettingsHandler;
-using MyEBooks.LogHandler.Htmllog;
-using MyEBooks.LogHandler.XmlLog;
+using ProductsEStore.LogHandler.LogSettingsHandler;
+using ProductsEStore.LogHandler.Htmllog;
+using ProductsEStore.LogHandler.XmlLog;
 
-namespace MyEBooks.LogHandler
+namespace ProductsEStore.LogHandler
 {
     public static class LogManager
     {

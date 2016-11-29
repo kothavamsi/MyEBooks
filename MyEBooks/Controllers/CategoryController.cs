@@ -1,12 +1,12 @@
 ﻿using System.Web.Mvc;
-using MyEBooks.Core;
-using MyEBooks.LogHandler;
-using MyEBooks.Models;
+using ProductsEStore.Core;
+using ProductsEStore.LogHandler;
+using ProductsEStore.Models;
 using System.Linq;
-using MyEBooks.PagerHandler.PagerSettingsHandler;
+using ProductsEStore.PagerHandler.PagerSettingsHandler;
 using System;
 
-namespace MyEBooks.Controllers
+namespace ProductsEStore.Controllers
 {
     public class CategoryController : MyBaseController
     {
@@ -23,7 +23,7 @@ namespace MyEBooks.Controllers
             Response response = _repository.GetProducts(requestCriteria);
 
             // Dependency Injection
-            var productListViewResult = Helper.GetProductListViewResult(requestCriteria, response,_repository);
+            var productListViewResult = Helper.GetProductListViewResult(requestCriteria, response, _repository);
             string headerMessage = string.Format("Found {0} Books Under {1} Category", response.ProductCount, requestCriteria.GetUserFriendlyCategoryName(requestCriteria.SeoFriendlyCategoryName));
             productListViewResult.Header = new ProductListViewResultHeader()
             {

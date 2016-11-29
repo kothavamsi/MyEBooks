@@ -8,32 +8,32 @@ namespace privateClasses
 {
     public class PopularTags
     {
-        public int TotalItems { get; set; }
+        public int TagDisplayCount { get; set; }
 
         public PopularTags()
         {
-            TotalItems = 100;
+            TagDisplayCount = 100;
         }
 
     }
 
     public class PopularAuthorTags
     {
-        public int TotalItems { get; set; }
+        public int TagDisplayCount { get; set; }
 
         public PopularAuthorTags()
         {
-            TotalItems = 100;
+            TagDisplayCount = 100;
         }
     }
 
     public class PopularPublisherTags
     {
-        public int TotalItems { get; set; }
+        public int TagDisplayCount { get; set; }
 
         public PopularPublisherTags()
         {
-            TotalItems = 100;
+            TagDisplayCount = 100;
         }
     }
 
@@ -93,7 +93,7 @@ namespace privateClasses
     }
 }
 
-namespace MyEBooks.SiteMap
+namespace ProductsEStore.SiteMap
 {
     public static class SiteMapSettings
     {

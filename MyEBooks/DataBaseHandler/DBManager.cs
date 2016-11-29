@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using MyEBooks.Models;
+using ProductsEStore.Models;
 
-namespace MyEBooks.DataBaseHandler
+namespace ProductsEStore.DataBaseHandler
 {
     public class DBManager
     {

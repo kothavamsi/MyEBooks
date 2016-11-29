@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MyEBooks.Models;
+using ProductsEStore.Models;
 
-namespace MyEBooks.Controllers
+namespace ProductsEStore.Controllers
 {
     public class NewReleaseController : MyBaseController
     {

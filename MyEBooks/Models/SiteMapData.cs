@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using MyEBooks.WebApi;
-using MyEBooks.Models;
-using MyEBooks.SiteMap;
-using MyEBooks.Core;
+using ProductsEStore.Core;
+using ProductsEStore.Repository.DataBase;
+using ProductsEStore.SiteMap;
+using ProductsEStore.WebApi;
 
-namespace MyEBooks.Models
+namespace ProductsEStore.Models
 {
     public class TagData
     {
@@ -29,7 +28,7 @@ namespace MyEBooks.Models
         public PopularTagData()
         {
             PopularTags = new List<TagData>();
-            TotalTagsToGet = SiteMapSettings.PopularTags.TotalItems;
+            TotalTagsToGet = SiteMapSettings.PopularTags.TagDisplayCount;
         }
     }
 
@@ -41,7 +40,7 @@ namespace MyEBooks.Models
         public PopularAuthorData()
         {
             PopularAuthorTags = new List<TagData>();
-            TotalTagsToGet = SiteMapSettings.PopularAuthorTags.TotalItems;
+            TotalTagsToGet = SiteMapSettings.PopularAuthorTags.TagDisplayCount;
         }
     }
 
@@ -53,7 +52,7 @@ namespace MyEBooks.Models
         public PopularPublisherData()
         {
             PopularPublisherTags = new List<TagData>();
-            TotalTagsToGet = SiteMapSettings.PopularPublisherTags.TotalItems;
+            TotalTagsToGet = SiteMapSettings.PopularPublisherTags.TagDisplayCount;
         }
     }
 
@@ -138,7 +137,7 @@ namespace MyEBooks.Models
 
         public void LoadSiteMapData()
         {
-            PopularTagData.PopularTags = MapDBPopularSearchTagToViewTagData(new TagManager().GetPopularTagsByRecent(SiteMapSettings.PopularTags.TotalItems));
+            PopularTagData.PopularTags = MapDBPopularSearchTagToViewTagData(new TagManager().GetPopularTagsByRecent(SiteMapSettings.PopularTags.TagDisplayCount));
         }
 
         public IEnumerable<TagData> MapDBPopularSearchTagToViewTagData(IEnumerable<PopularTag> dbTags)

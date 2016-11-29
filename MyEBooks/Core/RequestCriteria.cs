@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using MyEBooks.Core;
+using ProductsEStore.Core;
 
-namespace MyEBooks.Core
+namespace ProductsEStore.Core
 {
     public enum RequestMode
     {

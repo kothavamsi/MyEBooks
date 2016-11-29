@@ -49,8 +49,8 @@ namespace MyEBooks.Core
                 Rank = 2,
                 Weight = 1,
                 Enabled = true,
-                Text = "Wcf Technologies",
-                SeoFriendlyText = "WCF",
+                Name = "Wcf Technologies",
+                SEOFriendlyText = "WCF",
                 BackEndPurposeText = "WCF"
             });
 
@@ -61,8 +61,8 @@ namespace MyEBooks.Core
                 Rank = 1,
                 Weight = 2,
                 Enabled = true,
-                Text = "LINQ Technologies",
-                SeoFriendlyText = "LINQ",
+                Name = "LINQ Technologies",
+                SEOFriendlyText = "LINQ",
                 BackEndPurposeText = "LINQ"
             });
             categoryLstItems.Add(new CategoryListItem()
@@ -72,8 +72,8 @@ namespace MyEBooks.Core
                 Rank = 3,
                 Weight = 2,
                 Enabled = true,
-                Text = "ASP .NET",
-                SeoFriendlyText = "AspDotNet",
+                Name = "ASP .NET",
+                SEOFriendlyText = "AspDotNet",
                 BackEndPurposeText = "AspDotNet"
             });
             categoryLstItems.Add(new CategoryListItem()
@@ -83,8 +83,8 @@ namespace MyEBooks.Core
                 Rank = 3,
                 Weight = 2,
                 Enabled = true,
-                Text = "C#",
-                SeoFriendlyText = "CSharp",
+                Name = "C#",
+                SEOFriendlyText = "CSharp",
                 BackEndPurposeText = "CSharp"
             });
             return categoryLstItems;
@@ -99,8 +99,8 @@ namespace MyEBooks.Core
                 Enabled = true,
                 Rank = 2,
                 Weight = 1,
-                Text = "upload(default)",
-                SeoFriendlyText = "upload",
+                Name = "upload(default)",
+                SeoFriendlyName = "upload",
                 BackEndPurposeText = "upload"
             });
 
@@ -110,8 +110,8 @@ namespace MyEBooks.Core
                 Enabled = true,
                 Rank = 3,
                 Weight = 1,
-                Text = "Publication Date",
-                SeoFriendlyText = "publication-date",
+                Name = "Publication Date",
+                SeoFriendlyName = "publication-date",
                 BackEndPurposeText = "publicationdate"
             });
             sortByLstItems.Add(new SortByListItem()
@@ -120,8 +120,8 @@ namespace MyEBooks.Core
                 Enabled = true,
                 Rank = 1,
                 Weight = 1,
-                Text = "Avg. User Review",
-                SeoFriendlyText = "avg-user-review",
+                Name = "Avg. User Review",
+                SeoFriendlyName = "avg-user-review",
                 BackEndPurposeText = "avgUserReview"
             });
 

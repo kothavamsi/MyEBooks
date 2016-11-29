@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Configuration;
 
-namespace MyEBooks.SiteMap.Config
+namespace ProductsEStore.SiteMap.Config
 {
     public class SiteMapSectionGroup : ConfigurationSectionGroup
     {

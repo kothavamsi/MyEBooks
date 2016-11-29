@@ -6,12 +6,12 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using MyEBooks.LogHandler.LogSettingsHandler;
-using MyEBooks.LogHandler;
-using MyEBooks.PagerHandler.PagerSettingsHandler;
-using MyEBooks.SiteMap;
+using ProductsEStore.LogHandler.LogSettingsHandler;
+using ProductsEStore.LogHandler;
+using ProductsEStore.PagerHandler.PagerSettingsHandler;
+using ProductsEStore.SiteMap;
 
-namespace MyEBooks
+namespace ProductsEStore
 {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
     // visit http://go.microsoft.com/?LinkId=9394801
@@ -30,7 +30,7 @@ namespace MyEBooks
 
             LogSettingsManager.LoadSettings();
             LogManager.Initalize();
-            BooksLocationSettingsManager.LoadSettings();
+            //BooksLocationSettingsManager.LoadSettings();
             PagerSettingsManager.LoadSettings();
             SiteMapSettingsManager.LoadSettings();
         }

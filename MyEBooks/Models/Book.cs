@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MyEBooks.Models
+namespace ProductsEStore.Models
 {
     public class Book : IProduct
     {
@@ -13,5 +13,6 @@ namespace MyEBooks.Models
         public DateTime PublishedDate { get; set; }
         public double SizeMB { get; set; }
         public string BookCategory { get; set; }
+        public ProductType ProductType { get; set; }
     }
 }

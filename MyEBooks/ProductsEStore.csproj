@@ -11,7 +11,7 @@
     <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MyEBooks</RootNamespace>
+    <RootNamespace>ProductsEStore</RootNamespace>
     <AssemblyName>MyEBooks</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
@@ -167,9 +167,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="BookRepository\FileSystem\Config\BooksLocationManagerSection.cs" />
-    <Compile Include="BookRepository\FileSystem\BooksLocationSettingsHandler\BooksLocationSettings.cs" />
-    <Compile Include="BookRepository\FileSystem\BooksLocationSettingsHandler\BooksLocationSettingsManager.cs" />
     <Compile Include="Controllers\MostReviewsController.cs" />
     <Compile Include="Controllers\MyBaseController.cs" />
     <Compile Include="Controllers\NewReleaseController.cs" />
@@ -190,11 +187,13 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="LogHandler\Config\LogManagerSection.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="BookRepository\BookManager.cs" />
-    <Compile Include="BookRepository\DataBase\DatabaseRepository.cs" />
-    <Compile Include="BookRepository\FileSystem\FileSystemRepository.cs" />
-    <Compile Include="BookRepository\FileSystem\FileSystemRepositorySettings.cs" />
-    <Compile Include="BookRepository\IRepository.cs" />
+    <Compile Include="Repository\DataBase\DatabaseRepository.cs" />
+    <Compile Include="Repository\DataBase\ProductStore.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductStore.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\IRepository.cs" />
     <Compile Include="LogHandler\HtmlLog\HtmlLogger.cs" />
     <Compile Include="LogHandler\ILogger.cs" />
     <Compile Include="LogHandler\LogEntry.cs" />
@@ -223,14 +222,8 @@
     <Compile Include="SiteMap\SiteMapSettingsManager.cs" />
     <Compile Include="SiteMap\SiteMapSettings.cs" />
     <Compile Include="WebApi\TagExtenstions.cs" />
-    <Compile Include="WebApi\Tags.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Tags.edmx</DependentUpon>
-    </Compile>
     <Compile Include="WebApi\PopularTagsController.cs" />
     <Compile Include="WebApi\TagManager.cs" />
-    <Compile Include="WebApi\TagSliceCustomJsonFormatter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -334,13 +327,13 @@
     <None Include="fonts\glyphicons-halflings-regular.ttf" />
     <None Include="fonts\glyphicons-halflings-regular.woff" />
     <None Include="fonts\glyphicons-halflings-regular.woff2" />
+    <EntityDeploy Include="Repository\DataBase\ProductStore.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ProductStore.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <None Include="Scripts\jquery-3.1.1.min.map" />
     <None Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Views\Home\ContactSuccess.cshtml" />
-    <EntityDeploy Include="WebApi\Tags.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Tags.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <Content Include="Views\Shared\_PopularTagsPartial.cshtml" />
     <Content Include="Views\Shared\_MonthlyPartial.cshtml" />
     <Content Include="Views\TopSellers\Index.cshtml" />

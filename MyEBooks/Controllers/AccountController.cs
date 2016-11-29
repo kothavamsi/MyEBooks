@@ -8,10 +8,10 @@ using System.Web.Security;
 using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
-using MyEBooks.Filters;
-using MyEBooks.Models;
+using ProductsEStore.Filters;
+using ProductsEStore.Models;
 
-namespace MyEBooks.Controllers
+namespace ProductsEStore.Controllers
 {
     [Authorize]
     [InitializeSimpleMembership]

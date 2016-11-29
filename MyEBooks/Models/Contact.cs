@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
-using MyEBooks.Core;
+using ProductsEStore.Core;
 
-namespace MyEBooks.Models
+namespace ProductsEStore.Models
 {
     public class Contact : ViewModelBase
     {

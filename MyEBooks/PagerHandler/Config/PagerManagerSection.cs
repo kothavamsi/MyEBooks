@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Configuration;
 
-namespace MyEBooks.PagerHandler.Config
+namespace ProductsEStore.PagerHandler.Config
 {
     public class PagerManagerSection : ConfigurationSection
     {

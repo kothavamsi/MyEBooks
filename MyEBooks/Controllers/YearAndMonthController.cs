@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MyEBooks.Models;
-using MyEBooks.Core;
-using MyEBooks.PagerHandler.PagerSettingsHandler;
+using ProductsEStore.Models;
+using ProductsEStore.Core;
+using ProductsEStore.PagerHandler.PagerSettingsHandler;
 
-namespace MyEBooks.Controllers
+namespace ProductsEStore.Controllers
 {
     public class YearAndMonthController : MyBaseController
     {

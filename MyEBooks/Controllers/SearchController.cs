@@ -1,14 +1,15 @@
 ﻿using System.Web.Mvc;
-using MyEBooks.Core;
-using MyEBooks.LogHandler;
-using MyEBooks.Models;
+using ProductsEStore.Core;
+using ProductsEStore.LogHandler;
+using ProductsEStore.Models;
 using System.Collections.Generic;
 using System.Linq;
-using MyEBooks.PagerHandler.PagerSettingsHandler;
+using ProductsEStore.PagerHandler.PagerSettingsHandler;
 using System;
-using MyEBooks.WebApi;
+using ProductsEStore.WebApi;
+using ProductsEStore.Repository.DataBase;
 
-namespace MyEBooks.Controllers
+namespace ProductsEStore.Controllers
 {
     public class SearchController : MyBaseController
     {

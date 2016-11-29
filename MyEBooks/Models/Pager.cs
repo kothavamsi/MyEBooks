@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using MyEBooks.PagerHandler.PagerSettingsHandler;
+using ProductsEStore.PagerHandler.PagerSettingsHandler;
 
-namespace MyEBooks.Models
+namespace ProductsEStore.Models
 {
 
     public class Pager

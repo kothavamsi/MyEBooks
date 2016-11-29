@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using System.Collections.Generic;
 using System.Web.Http;
+using ProductsEStore.Repository.DataBase;
 
-namespace MyEBooks.WebApi
+namespace ProductsEStore.WebApi
 {
     public class PopularTagsController : ApiController
     {

@@ -7,7 +7,7 @@ using System.Globalization;
 using System.Web.Mvc;
 using System.Web.Security;
 
-namespace MyEBooks.Models
+namespace ProductsEStore.Models
 {
     public class UsersContext : DbContext
     {

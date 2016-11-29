@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MyEBooks.Models;
-using MyEBooks.DataBaseHandler;
-using MyEBooks.WebApi;
+using ProductsEStore.Models;
+using ProductsEStore.DataBaseHandler;
+using ProductsEStore.WebApi;
 
-namespace MyEBooks.Controllers
+namespace ProductsEStore.Controllers
 {
     public class HomeController : MyBaseController
     {

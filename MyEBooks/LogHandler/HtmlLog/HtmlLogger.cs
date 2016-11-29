@@ -1,9 +1,9 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-using MyEBooks.LogHandler.LogSettingsHandler;
+using ProductsEStore.LogHandler.LogSettingsHandler;
 
-namespace MyEBooks.LogHandler.Htmllog
+namespace ProductsEStore.LogHandler.Htmllog
 {
     class HtmlLogger : ILogger
     {
